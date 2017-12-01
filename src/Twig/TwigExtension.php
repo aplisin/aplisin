@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Twig\Extensions;
+namespace App\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

@@ -6,6 +6,7 @@
         "doctrine/doctrine-bundle": "^1.8",
         "doctrine/orm": "^2.5",
         "sensio/framework-extra-bundle": "^5.1",
+        "stof/doctrine-extensions-bundle": "^1.2",
         "symfony/asset": "^3.4",
         "symfony/console": "^3.4",
         "symfony/flex": "^1.0",
@@ -15,11 +16,13 @@
         "symfony/security-bundle": "^3.4",
         "symfony/translation": "^3.4",
         "symfony/twig-bundle": "^3.4",
+        "symfony/validator": "^3.4",
         "symfony/yaml": "^3.4",
         "twig/extensions": "^1.5"
     },
     "require-dev": {
         "symfony/dotenv": "^3.4",
+        "symfony/maker-bundle": "^1.0",
         "symfony/web-profiler-bundle": "^3.4",
         "symfony/webpack-encore-pack": "^1.0"
     },

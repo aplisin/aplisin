@@ -253,5 +253,32 @@
             "version": "3.3",
             "ref": "124be9a2b7cc035fd8c56f4fd2e19c907c1f3fb8"
         }
+    },
+    "symfony/maker-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
+    },
+    "symfony/validator": {
+        "version": "v3.4.0"
+    },
+    "behat/transliterator": {
+        "version": "v1.2.0"
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "v2.4.31"
+    },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
+        }
     }
 }
