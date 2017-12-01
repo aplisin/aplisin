@@ -17,7 +17,8 @@
     },
     "require-dev": {
         "symfony/dotenv": "^3.4",
-        "symfony/web-profiler-bundle": "^3.4"
+        "symfony/web-profiler-bundle": "^3.4",
+        "symfony/webpack-encore-pack": "^1.0"
     },
     "config": {
         "preferred-install": {

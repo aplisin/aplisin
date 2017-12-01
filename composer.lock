@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcad2b0c119b50634a97a709e2c02e2f",
+    "content-hash": "0d04c0503c14682f72e5f8fcbd1ce8fa",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3498,6 +3498,28 @@
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
             "time": "2017-11-24T14:13:49+00:00"
+        },
+        {
+            "name": "symfony/webpack-encore-pack",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/webpack-encore-pack.git",
+                "reference": "4c3874189d3f4a76b039833efa104940c01f0bae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/webpack-encore-pack/4c3874189d3f4a76b039833efa104940c01f0bae.zip",
+                "reference": "4c3874189d3f4a76b039833efa104940c01f0bae",
+                "shasum": ""
+            },
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A pack for Symfony Encore",
+            "time": "2017-09-11T13:27:25+00:00"
         }
     ],
     "aliases": [],
