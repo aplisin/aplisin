@@ -232,5 +232,14 @@
             "version": "1.0",
             "ref": "9954e3835ce82fee2682be8501ce0511bb867812"
         }
+    },
+    "twig/extensions": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "4851df0afc426b8f07204379d21fca25b6df5d68"
+        }
     }
 }
