@@ -244,5 +244,14 @@
     },
     "symfony/asset": {
         "version": "v3.4.0"
+    },
+    "symfony/translation": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "124be9a2b7cc035fd8c56f4fd2e19c907c1f3fb8"
+        }
     }
 }
