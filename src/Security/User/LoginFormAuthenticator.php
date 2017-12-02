@@ -35,9 +35,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         }
 
         $csrfToken = $request->request->get('authenticate')['_token'];
-        if (false === $this->getCsrfTokenManager()->isTokenValid(new CsrfToken('authenticate', $csrfToken))) {
-            throw new InvalidCsrfTokenException('Invalid CSRF token.');
-        }
+        $this->isTokenValid('authenticate', $csrfToken);
 
         $form = $this->getFormFactory()->create(LoginUserType::class);
         $form->handleRequest($request);
@@ -66,6 +64,15 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     protected function getDefaultSuccessRedirectUrl()
     {
         return $this->getRouter()->generate('homepage');
+    }
+
+    protected function isTokenValid($tokenId, $csrfToken)
+    {
+        if (false === $this->getCsrfTokenManager()->isTokenValid(new CsrfToken($tokenId, $csrfToken))) {
+            throw new InvalidCsrfTokenException('Invalid CSRF token.');
+        }
+
+        return true;
     }
 
     protected function getCsrfTokenManager()

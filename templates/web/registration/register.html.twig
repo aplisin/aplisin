@@ -5,6 +5,11 @@
   {{ form_start(form, {'attr': {'class':'form-signin'}}) }}
   <fieldset>
     <legend>{{ 'Sign Up'|trans }}</legend>
+    {% if error %}
+      <div class="alert alert-danger">
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+      </div>
+    {% endif %}
     {{ form_row(form.username) }}
     {{ form_row(form.email) }}
     {{ form_row(form.password.first) }}
