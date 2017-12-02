@@ -17,7 +17,7 @@ class BaseController extends Controller
             throw new \RuntimeException('type error');
         }
 
-        return $this->render('@App/web/default/message.html.twig', array(
+        return $this->render('web/default/message.html.twig', array(
             'type' => $type,
             'message' => $message,
             'title' => $title

@@ -1,13 +1,22 @@
 security:
     # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        users:
+            entity: { class: App\Entity\User\User, property: username }
+
+    encoders:
+        App\Entity\User\User: bcrypt
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: ~
+
+            guard:
+                authenticators:
+                    - security.user.login_form_authenticator
 
             # activate different ways to authenticate
 
@@ -16,3 +25,14 @@ security:
 
             # form_login: ~
             # https://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            form_login:
+                login_path: login
+                check_path: login_check
+
+            logout:
+                path: /logout
+
+            logout_on_user_change: true
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/, roles: ROLE_ADMIN }

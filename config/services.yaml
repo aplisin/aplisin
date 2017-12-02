@@ -26,3 +26,19 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    security.user.login_form_authenticator:
+        class: App\Security\User\LoginFormAuthenticator
+        autowire: true
+
+    service.user.auth_service:
+        class: App\Service\User\AuthService
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true
+
+    service.user.user_service:
+        class: App\Service\User\UserService
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true

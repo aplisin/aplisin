@@ -1,0 +1,15 @@
+{% extends 'web/' ~ (is_pjax() ? 'layout_pjax' : 'layout') ~ '.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block content %}
+  {{ form_start(form, {'attr': {'class':'form-signin'}}) }}
+  <fieldset>
+    <legend>{{ 'Sign Up'|trans }}</legend>
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.password.first) }}
+    {{ form_row(form.password.second) }}
+    {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+    {{ form_end(form) }}
+  </fieldset>
+{% endblock %}

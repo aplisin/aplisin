@@ -20,7 +20,7 @@ class User implements UserInterface
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -227,16 +227,6 @@ class User implements UserInterface
     public function getUserProfile()
     {
         return $this->userProfile;
-    }
-
-    /**
-     * @param mixed $userProfile
-     * @return User
-     */
-    public function setUserProfile($userProfile)
-    {
-        $this->userProfile = $userProfile;
-        return $this;
     }
 
     /**

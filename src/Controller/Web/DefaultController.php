@@ -2,12 +2,12 @@
 
 namespace App\Controller\Web;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Controller\BaseController;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
- public function index()
- {
-     return $this->render('web/default/index.html.twig');
- }
+    public function index()
+    {
+        return $this->render('web/default/index.html.twig');
+    }
 }

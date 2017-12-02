@@ -13,7 +13,7 @@ class UserProfile
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
