@@ -5,6 +5,7 @@
 /var/
 /vendor/
 /.idea
+**.yml~
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-pack ###
