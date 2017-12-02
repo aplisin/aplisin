@@ -20,10 +20,10 @@
             <ul class="navbar-nav justify-content-end ml-auto">
                 {% if app.user %}
                     <li class="nav-item">{{ app.user.username }}</li>
-                    {#<li class="nav-item"><a href="{{ path('logout') }}" class="nav-link">{{ 'Log Out'|trans }}</a></li>#}
+                    <li class="nav-item"><a href="{{ path('logout') }}" class="nav-link">{{ 'Log Out'|trans }}</a></li>
                 {% else %}
                     <li class="nav-item"><a href="{{ path('register') }}" data-pjax data-pjax-container="#content-container" class="nav-link">{{ 'Sign Up'|trans }}</a></li>
-                    {#<li class="nav-item"><a href="{{ path('login') }}" data-pjax data-pjax-container="#content-container" class="nav-link">{{ 'Log In'|trans }}</a></li>#}
+                    <li class="nav-item"><a href="{{ path('login') }}" data-pjax data-pjax-container="#content-container" class="nav-link">{{ 'Log In'|trans }}</a></li>
                 {% endif %}
             </ul>
         </div>

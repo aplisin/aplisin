@@ -9,7 +9,7 @@ class BaseService
     /**
      * @var ContainerInterface
      */
-    protected $container;
+    private $container;
 
     public function setContainer(ContainerInterface $container)
     {

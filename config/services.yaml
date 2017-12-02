@@ -39,6 +39,7 @@ services:
 
     service.user.user_service:
         class: App\Service\User\UserService
+        public: true
         calls:
             - [setContainer, ['@service_container']]
         lazy: true

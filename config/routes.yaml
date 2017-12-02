@@ -5,3 +5,15 @@ homepage:
 register:
     path: /register
     defaults: { _controller: 'App\Controller\Web\RegistrationController:register' }
+
+login:
+    path: /login
+    defaults: { _controller: 'App\Controller\Web\SecurityController:login' }
+
+logout:
+    path: /logout
+    defaults: { _controller: 'App\Controller\Web\SecurityController:logout' }
+
+login_check:
+    path: /login_check
+    defaults: { _controller: 'App\Controller\Web\SecurityController:loginCheck' }

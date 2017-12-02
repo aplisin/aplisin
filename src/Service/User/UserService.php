@@ -13,6 +13,6 @@ class UserService extends BaseService
 
     protected function getUserRepository()
     {
-        return $this->getEntityManager()->getRepository('AppBundle:User\User');
+        return $this->getEntityManager()->getRepository('App:User\User');
     }
 }

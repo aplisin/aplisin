@@ -1,0 +1,18 @@
+{% extends 'web/' ~ (is_pjax() ? 'layout_pjax' : 'layout') ~ '.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block content %}
+  {{ form_start(form, {'attr': {'class':'form-signin'}}) }}
+  <fieldset>
+    <legend>{{ 'Log In'|trans }}</legend>
+    {% if error %}
+      <div class="alert alert-danger">
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+      </div>
+    {% endif %}
+    {{ form_row(form.username) }}
+    {{ form_row(form.password) }}
+    {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+    {{ form_end(form) }}
+  </fieldset>
+{% endblock %}
