@@ -1,9 +1,9 @@
-'You are already logged in': 您已经登录
+'You are already logged in': 您已经登录了
 'Sign Up': 注册
 'Log In': 登录
-Tips: 提示
-Warning: 警告
-Error: 误差
-Home: 回家
+Tips: 提示信息
+Warning: 警告信息
+Error: 错误信息
+Home: 首页
 Search: 搜索
-'Log Out': 注销
+'Log Out': 退出登录
