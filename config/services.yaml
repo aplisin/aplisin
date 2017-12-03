@@ -2,6 +2,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'zh_CN'
+    env(baidu_translate_appid): '%env(resolve:BAIDU_TRANSLATE_APPID)%'
+    env(baidu_translate_salt): '%env(resolve:BAIDU_TRANSLATE_SALT)%'
 
 services:
     # default configuration for services in *this* file
@@ -39,6 +41,13 @@ services:
 
     service.user.user_service:
         class: App\Service\User\UserService
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true
+
+    service.translate.baidu_translate_service:
+        class: App\Service\Translate\BaiduTranslateService
         public: true
         calls:
             - [setContainer, ['@service_container']]
