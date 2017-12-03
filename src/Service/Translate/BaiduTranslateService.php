@@ -12,20 +12,31 @@ class BaiduTranslateService extends BaseService
     {
         $appid = $this->container->getParameter('env(baidu_translate_appid)');
         $salt = $this->container->getParameter('env(baidu_translate_salt)');
-        $sign = md5($appid . $message . $salt);
 
-        $locale = explode('_', $locale)[0];
+        $dst = '';
+        if ((isset($appid) && !empty($appid)) && (isset($salt) && !empty($salt))) {
+            $sign = md5($appid . $message . $salt);
 
-        $params = array(
-            'q' => $message,
-            'from' => 'en',
-            'to' => $locale,
-            'appid' => $appid,
-            'salt' => $salt,
-            'sign' => $sign
-        );
+            $locale = explode('_', $locale)[0];
 
-        $response = $this->sendRequest('get', $this->baseUrl, $params);
-        return json_decode($response, true)['trans_result'][0]['dst'];
+            $params = array(
+                'q' => $message,
+                'from' => 'en',
+                'to' => $locale,
+                'appid' => $appid,
+                'salt' => $salt,
+                'sign' => $sign
+            );
+
+            $response = $this->sendRequest('get', $this->baseUrl, $params);
+
+            if ($response) {
+                $dst = json_decode($response, true)['trans_result'][0]['dst'];
+            } else {
+                $dst = $message;
+            }
+        }
+
+        return $dst;
     }
 }
