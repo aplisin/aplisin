@@ -1,4 +1,4 @@
-{% extends 'web/' ~ (is_pjax() ? 'layout_pjax' : 'layout') ~ '.html.twig' %}
+{% extends 'web/layout.html.twig' %}
 
 {% set typeTitles = {info:'Tips'|trans, warning:'Warning'|trans, error: 'Error'|trans} %}
 {% set title = title|default(typeTitles[type]) %}
