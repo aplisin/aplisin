@@ -1,6 +1,10 @@
 'You are already logged in': あなたがすでに記録
-'Sign Up': サインアップ
+Username: ユーザー名
+Password: パスワード
 'Log In': ログイン
+Email: 電子メール
+'Confirm Password': パスワードの確認
+'Sign Up': サインアップ
 Tips: ヒント
 Warning: 警告
 Error: エラー

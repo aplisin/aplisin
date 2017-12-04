@@ -1,6 +1,10 @@
 'You are already logged in': 'You are already logged in'
-'Sign Up': 'Sign Up'
+Username: Username
+Password: Password
 'Log In': 'Log In'
+Email: Email
+'Confirm Password': 'Confirm Password'
+'Sign Up': 'Sign Up'
 Tips: Tips
 Warning: Warning
 Error: Error

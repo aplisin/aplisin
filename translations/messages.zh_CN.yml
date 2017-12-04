@@ -1,6 +1,10 @@
 'You are already logged in': 您已经登录了
-'Sign Up': 注册
+Username: 用户名
+Password: 密码
 'Log In': 登录
+Email: 邮箱
+'Confirm Password': 确认密码
+'Sign Up': 注册
 Tips: 提示信息
 Warning: 警告信息
 Error: 错误信息

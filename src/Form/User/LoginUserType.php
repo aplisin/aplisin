@@ -7,9 +7,17 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class LoginUserType extends AbstractType
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -17,9 +25,9 @@ class LoginUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, array('required' => true, 'attr' => array('maxlength' => 32)))
-            ->add('password', PasswordType::class, array('required' => true, 'attr' => array('maxlength' => 18)))
-            ->add('submit', SubmitType::class, array('label' => 'Log In'));
+            ->add('username', TextType::class, array('label' => $this->translator->trans('Username'), 'required' => true, 'attr' => array('maxlength' => 32)))
+            ->add('password', PasswordType::class, array('label' => $this->translator->trans('Password'), 'required' => true, 'attr' => array('maxlength' => 18)))
+            ->add('submit', SubmitType::class, array('label' => $this->translator->trans('Log In'), 'attr' => array('class' => 'btn btn-primary btn-block')));
     }
 
     /**
