@@ -5,6 +5,7 @@
 /var/
 /vendor/
 /.idea
+/.vscode
 **.yml~
 ###< symfony/framework-bundle ###
 
