@@ -9,7 +9,8 @@
     "jquery-pjax": "^2.0.1",
     "node-sass": "^4.7.2",
     "popper.js": "^1.12.9",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "nprogress": "^0.2.0"
   },
   "license": "UNLICENSED",
   "private": true,
