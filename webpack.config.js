@@ -21,10 +21,12 @@ Encore
     'jquery-pjax',
     'popper.js/dist/esm/popper',
     'bootstrap',
+    'nprogress',
 
     // you can also extract CSS - this will create a 'vendor.css' file
     // this CSS will *not* be included in page1.css or page2.css anymore
     'bootstrap/scss/bootstrap.scss',
+    'nprogress/nprogress.css',
   ])
   // uncomment if you use Sass/SCSS files
   // allow sass/scss files to be processed

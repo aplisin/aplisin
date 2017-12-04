@@ -1,7 +1,5 @@
 require('./app.scss');
-
-import NProgress from 'NProgress';
-import 'nprogress/nprogress.css';
+import NProgress from 'nprogress';
 
 // loads the jquery package from node_modules
 if ($.support.pjax) {
@@ -13,7 +11,6 @@ if ($.support.pjax) {
             container: pjaxContainer,
         });
     });
-}
 
-// 顶部加载条，TODO:使用在全局js中
-$(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done);
+    $(document).on('pjax:start', NProgress.start).on('pjax:end', NProgress.done);
+}
