@@ -25,9 +25,9 @@ class LoginUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, array('label' => $this->translator->trans('Username'), 'required' => true, 'attr' => array('maxlength' => 32)))
-            ->add('password', PasswordType::class, array('label' => $this->translator->trans('Password'), 'required' => true, 'attr' => array('maxlength' => 18)))
-            ->add('submit', SubmitType::class, array('label' => $this->translator->trans('Log In'), 'attr' => array('class' => 'btn btn-primary btn-block')));
+            ->add('username', TextType::class, array('label' => 'Username', 'required' => true, 'attr' => array('maxlength' => 32)))
+            ->add('password', PasswordType::class, array('label' => 'Password', 'required' => true, 'attr' => array('maxlength' => 18)))
+            ->add('submit', SubmitType::class, array('label' => 'Log In', 'attr' => array('class' => 'btn btn-primary btn-block')));
     }
 
     /**
