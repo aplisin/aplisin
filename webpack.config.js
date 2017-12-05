@@ -7,7 +7,8 @@ Encore
   .setPublicPath('/assets')
 
   // uncomment to define the assets of the project
-  .addEntry('app/app', './assets/app/app.js')
+  .addEntry('web/app', './assets/web/app.js')
+  .addEntry('admin/app', './assets/admin/app.js')
   // .addStyleEntry('css/app', './assets/css/app.scss')
 
   .addEntry('libs/fix-ie', [

@@ -1,0 +1,11 @@
+{% extends 'web/layout.html.twig' %}
+
+{% set typeTitles = {info:'Tips'|trans, warning:'Warning'|trans, error: 'Error'|trans} %}
+{% set title = title|default(typeTitles[type]) %}
+
+{% block content %}
+  <div class="alert alert-{{ type }}" role="alert">
+    <h4 class="alert-heading">{{ title }}</h4>
+    <p>{{ message|default('')|trans }}</p>
+  </div>
+{% endblock %}

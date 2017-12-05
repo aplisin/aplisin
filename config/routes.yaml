@@ -17,3 +17,7 @@ logout:
 login_check:
     path: /login_check
     defaults: { _controller: 'App\Controller\Web\SecurityController:loginCheck' }
+
+admin:
+    resource: "routing_admin.yml"
+    prefix:   /admin

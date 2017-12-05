@@ -1,8 +1,10 @@
 {
-  "assets/app/app.css": "/assets/app/app.css",
-  "assets/app/app.js": "/assets/app/app.js",
+  "assets/admin/app.css": "/assets/admin/app.css",
+  "assets/admin/app.js": "/assets/admin/app.js",
   "assets/libs/fix-ie.js": "/assets/libs/fix-ie.js",
   "assets/libs/libs.css": "/assets/libs/libs.css",
   "assets/libs/libs.js": "/assets/libs/libs.js",
-  "assets/manifest.js": "/assets/manifest.js"
+  "assets/manifest.js": "/assets/manifest.js",
+  "assets/web/app.css": "/assets/web/app.css",
+  "assets/web/app.js": "/assets/web/app.js"
 }

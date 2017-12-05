@@ -1,31 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">aplisin</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-5">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('homepage') }}" data-pjax data-pjax-container="#content-container">{{ 'Home'|trans }}
-                        <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">aplisin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-5">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('homepage') }}" data-pjax data-pjax-container="#content-container">{{ 'Home'|trans }}
+            <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="{{ 'Search'|trans }}" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{ 'Search'|trans }}</button>
-            </form>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="{{ 'Search'|trans }}" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{ 'Search'|trans }}</button>
+      </form>
 
-            <ul class="navbar-nav justify-content-end ml-auto">
-                {% if app.user %}
-                    <li class="nav-item">{{ app.user.username }}</li>
-                    <li class="nav-item"><a href="{{ path('logout') }}" class="nav-link">{{ 'Log Out'|trans }}</a></li>
-                {% else %}
-                    <li class="nav-item"><a href="{{ path('register') }}" data-pjax data-pjax-container="#content-container" class="nav-link">{{ 'Sign Up'|trans }}</a></li>
-                    <li class="nav-item"><a href="{{ path('login') }}" data-pjax data-pjax-container="#content-container" class="nav-link">{{ 'Log In'|trans }}</a></li>
-                {% endif %}
-            </ul>
-        </div>
+      <ul class="navbar-nav justify-content-end ml-auto">
+        {% if app.user %}
+          <li class="nav-item">{{ app.user.username }}</li>
+          <li class="nav-item"><a href="{{ path('logout') }}" class="nav-link">{{ 'Log Out'|trans }}</a></li>
+        {% else %}
+          <li class="nav-item"><a href="{{ path('register') }}" data-pjax data-pjax-container="#content-container" class="nav-link">{{ 'Sign Up'|trans }}</a></li>
+          <li class="nav-item"><a href="{{ path('login') }}" data-pjax data-pjax-container="#content-container" class="nav-link">{{ 'Log In'|trans }}</a></li>
+        {% endif %}
+      </ul>
     </div>
+  </div>
 </nav>
