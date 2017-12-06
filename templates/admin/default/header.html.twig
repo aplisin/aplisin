@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="{{ path('dashboard') }}" data-pjax="#content-container">{{ 'Dashboard'|trans }}</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="{{ path('dashboard') }}" data-pjax="#content-container">aplisin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav justify-content-end ml-auto">
-      <li class="nav-item"><a href="{{ path('homepage') }}" class="nav-link">{{ 'Home'|trans }}</a></li>
+      <li class="nav-item"><a href="{{ path('homepage') }}" class="nav-link">{{ 'Back To Home'|trans }}</a></li>
 
       {% if app.user %}
         <li class="nav-item dropdown">

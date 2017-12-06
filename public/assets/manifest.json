@@ -1,6 +1,11 @@
 {
   "assets/admin/app.css": "/assets/admin/app.css",
   "assets/admin/app.js": "/assets/admin/app.js",
+  "assets/fonts/fontawesome-webfont.eot": "/assets/fonts/fontawesome-webfont.674f50d2.eot",
+  "assets/fonts/fontawesome-webfont.ttf": "/assets/fonts/fontawesome-webfont.b06871f2.ttf",
+  "assets/fonts/fontawesome-webfont.woff": "/assets/fonts/fontawesome-webfont.fee66e71.woff",
+  "assets/fonts/fontawesome-webfont.woff2": "/assets/fonts/fontawesome-webfont.af7ae505.woff2",
+  "assets/images/fontawesome-webfont.svg": "/assets/images/fontawesome-webfont.912ec66d.svg",
   "assets/libs/fix-ie.js": "/assets/libs/fix-ie.js",
   "assets/libs/libs.css": "/assets/libs/libs.css",
   "assets/libs/libs.js": "/assets/libs/libs.js",

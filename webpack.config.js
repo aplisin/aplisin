@@ -27,6 +27,7 @@ Encore
     // you can also extract CSS - this will create a 'vendor.css' file
     // this CSS will *not* be included in page1.css or page2.css anymore
     'bootstrap/scss/bootstrap.scss',
+    'font-awesome/scss/font-awesome.scss',
     'nprogress/nprogress.css',
   ])
   // uncomment if you use Sass/SCSS files
