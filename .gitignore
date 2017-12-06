@@ -3,7 +3,7 @@
 .env
 /public/bundles/
 /var/
-/vendor/
+#/vendor/
 /.idea
 /.vscode
 **.yml~
