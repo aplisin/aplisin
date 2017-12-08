@@ -49,8 +49,10 @@
             {% include 'admin/sidebar.html.twig' %}
           {% endblock %}
 
-          {% block main %}
-          {% endblock %}
+          <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main" id="main-container">
+            {% block main %}
+            {% endblock %}
+          </main>
         </div>
       {% endblock %}
     </div>

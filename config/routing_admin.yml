@@ -1,3 +1,7 @@
-dashboard:
+admin:
     path: /
     defaults: { _controller: 'App\Controller\Admin\DefaultController::index' }
+
+admin_user:
+    path:  /user
+    defaults: { _controller: 'App\Controller\Admin\UserController::index' }

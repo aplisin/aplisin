@@ -19,7 +19,7 @@ class AuthService extends BaseService
     {
         $password = $this->container->get('security.password_encoder')->encodePassword($user, $user->getPassword());
         $user->setPassword($password);
-        $user->setRoles(array('ROLE_USER'));
+        $user->setRoles(array('ROLE_USER', $user->getRoles()));
         $user->setIsActive(true);
 
         $userProfile = new UserProfile();

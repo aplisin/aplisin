@@ -27,6 +27,7 @@ class SystemInitCommand extends ContainerAwareCommand
             'username' => 'administrator',
             'email' => 'test@aplisin.com',
             'password' => 'developer',
+            'roles' => 'ROLE_ADMIN'
         );
 
         $this->initAdminUser($fields, $io);
@@ -50,24 +51,18 @@ class SystemInitCommand extends ContainerAwareCommand
                 ->setUsername($fields['username'])
                 ->setEmail($fields['email'])
                 ->setPassword($fields['password'])
-                ->setRoles(array('ROLE_USER', 'ROLE_ADMIN'))
-                ->setIsActive(true);
-            $password = $this->getContainer()->get('security.password_encoder')->encodePassword($user, $fields['password']);
-            $user->setPassword($password);
+                ->setRoles($fields['roles']);
 
-            $userProfile = new UserProfile();
-            $userProfile->setTruename('');
-            $userProfile->setUser($user);
-
-            $em = $this->getContainer()->get('doctrine')->getManager();
-            $em->persist($user);
-            $em->persist($userProfile);
-            $em->flush();
+            $this->getAuthService()->register($user, 'default');
         }
 
         $io->writeln('success');
     }
 
+    private function getAuthService()
+    {
+        return $this->getContainer()->get('service.user.auth_service');
+    }
 
     private function getUserService()
     {

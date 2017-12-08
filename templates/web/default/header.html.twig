@@ -26,7 +26,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 {% if is_granted('ROLE_ADMIN') %}
-                  <a class="dropdown-item" href="{{ path('dashboard') }}">{{ 'Dashboard'|trans }}</a>
+                  <a class="dropdown-item" href="{{ path('admin') }}">{{ 'Dashboard'|trans }}</a>
                 {% endif %}
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ path('logout') }}">{{ 'Log Out'|trans }}</a>
