@@ -25,7 +25,7 @@
   {% endblock %}
   <!--[if lt IE 9]>
   {% block ie_script %}
-    {% include 'admin/script_ie.html.twig' %}
+  {% include 'admin/script_ie.html.twig' %}
   {% endblock %}
   <![endif]-->
   {% block stylesheets %}
@@ -46,7 +46,9 @@
       {% block content %}
         <div class="row">
           {% block sidebar %}
-            {% include 'admin/sidebar.html.twig' %}
+            <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+              {% include 'admin/sidebar.html.twig' %}
+            </nav>
           {% endblock %}
 
           <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main" id="main-container">
