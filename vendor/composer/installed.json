@@ -1,53 +1,5 @@
 [
     {
-        "name": "symfony/flex",
-        "version": "v1.0.45",
-        "version_normalized": "1.0.45.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/flex.git",
-            "reference": "8917eb9e7d490088b85ea2a4cd7f2ad52bb0d9ee"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/flex/8917eb9e7d490088b85ea2a4cd7f2ad52bb0d9ee.zip",
-            "reference": "8917eb9e7d490088b85ea2a4cd7f2ad52bb0d9ee",
-            "shasum": ""
-        },
-        "require": {
-            "composer-plugin-api": "^1.1",
-            "php": "^7.0"
-        },
-        "require-dev": {
-            "composer/composer": "^1.4",
-            "symfony/phpunit-bridge": "^3.2.8"
-        },
-        "time": "2017-12-04T22:00:42+00:00",
-        "type": "composer-plugin",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            },
-            "class": "Symfony\\Flex\\Flex"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Flex\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien.potencier@gmail.com"
-            }
-        ]
-    },
-    {
         "name": "behat/transliterator",
         "version": "v1.2.0",
         "version_normalized": "1.2.0.0",
@@ -4464,5 +4416,53 @@
             "MIT"
         ],
         "description": "A pack for Symfony Encore"
+    },
+    {
+        "name": "symfony/flex",
+        "version": "v1.0.48",
+        "version_normalized": "1.0.48.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/flex.git",
+            "reference": "73436bc5c0e3b63f5655552d580b48ad0e17543f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/flex/73436bc5c0e3b63f5655552d580b48ad0e17543f.zip",
+            "reference": "73436bc5c0e3b63f5655552d580b48ad0e17543f",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.1",
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "composer/composer": "^1.4",
+            "symfony/phpunit-bridge": "^3.2.8"
+        },
+        "time": "2017-12-07T20:09:46+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            },
+            "class": "Symfony\\Flex\\Flex"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Flex\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien.potencier@gmail.com"
+            }
+        ]
     }
 ]
