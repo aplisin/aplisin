@@ -2,7 +2,7 @@
 
 namespace App\Repository\User;
 
-use App\Entity\UserProfile;
+use App\Entity\User\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

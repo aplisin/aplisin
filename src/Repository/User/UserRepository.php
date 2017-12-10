@@ -4,7 +4,6 @@ namespace App\Repository\User;
 
 use App\Entity\User\User;
 use App\Repository\BaseRepository;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class UserRepository extends BaseRepository
@@ -19,6 +18,10 @@ class UserRepository extends BaseRepository
         return array(
             'where' => array(
                 'u.username LIKE :username'
+            ),
+            'orderbys' => array(
+                'createdAt',
+                'updatedAt'
             )
         );
     }

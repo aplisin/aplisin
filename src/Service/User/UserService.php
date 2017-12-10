@@ -12,9 +12,9 @@ class UserService extends BaseService
         return $this->getUserRepository()->findOneBy(array('username' => $keyword));
     }
 
-    public function getQueryBuilder(array $conditions, $alias, $indexBy = null)
+    public function getQueryBuilder(array $conditions, array $orderBys, $alias, $indexBy = null)
     {
-        return $this->getUserRepository()->getQueryBuilder($conditions, $alias, $indexBy);
+        return $this->getUserRepository()->getQueryBuilder($conditions, $orderBys, $alias, $indexBy);
     }
 
     protected function getUserRepository()

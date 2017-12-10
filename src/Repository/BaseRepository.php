@@ -4,17 +4,19 @@ namespace App\Repository;
 
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
+use Doctrine\DBAL\Exception\InvalidArgumentException;
 
 abstract class BaseRepository extends ServiceEntityRepository
 {
     protected $conditions;
 
-    public function getQueryBuilder(array $conditions, $alias, $indexBy = null)
+    protected $orderbys;
+
+    public function getQueryBuilder(array $conditions, array $orderBys, $alias, $indexBy = null)
     {
         $this->conditions = $conditions;
-        return $this->createQueryBuilder('u', null)->getQuery();
+        $this->orderbys = $orderBys;
+        return $this->createQueryBuilder($alias, $indexBy)->getQuery();
     }
 
     public function createQueryBuilder($alias, $indexBy = null)
@@ -26,7 +28,7 @@ abstract class BaseRepository extends ServiceEntityRepository
                     return false;
                 }
 
-                if (is_array($value) && empty($value)) {
+                if (\is_array($value) && empty($value)) {
                     return false;
                 }
 
@@ -36,7 +38,7 @@ abstract class BaseRepository extends ServiceEntityRepository
 
         $builder = parent::createQueryBuilder($alias, $indexBy);
         $declares = $this->declares();
-        $declares['where'] = isset($declares['where']) ? $declares['where'] : array();
+        $declares['where'] = $declares['where'] ?? array();
 
         foreach ($declares['where'] as $where) {
             $key = explode(':', $where)[1];
@@ -56,7 +58,7 @@ abstract class BaseRepository extends ServiceEntityRepository
                             break;
                         case 'PRE_LIKE':
                             $where = preg_replace('/PRE_LIKE/i', 'LIKE', $where, 1);
-                            $value = $value . '%';
+                            $value .= '%';
                             break;
                     }
                 }
@@ -66,11 +68,27 @@ abstract class BaseRepository extends ServiceEntityRepository
             }
         }
 
+        foreach ($this->orderbys ?: array() as $order => $sort) {
+            $this->checkOrderBy($order, $sort, $declares['orderbys']);
+            $builder->addOrderBy($alias . '.' . $order, $sort);
+        }
+
         return $builder;
     }
 
     protected function declares()
     {
         return array();
+    }
+
+    private function checkOrderBy($order, $sort, $allowOrderBys)
+    {
+        if (!\in_array($order, $allowOrderBys, true)) {
+            throw new InvalidArgumentException(sprintf("SQL order by field is only allowed '%s', but you give `{$order}`.", implode(',', $allowOrderBys)));
+        }
+
+        if (!\in_array(strtoupper($sort), array('ASC', 'DESC'), true)) {
+            throw new InvalidArgumentException("SQL order by direction is only allowed `ASC`, `DESC`, but you give `{$sort}`.");
+        }
     }
 }

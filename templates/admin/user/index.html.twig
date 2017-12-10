@@ -13,22 +13,15 @@
     <table class="table table-striped table table-bordered">
       <thead>
       <tr>
-        <th>#</th>
-        <th>Header</th>
-        <th>Header</th>
-        <th>Header</th>
+        <th>{{ 'Username'|trans }}</th>
+        <th>{{ 'Email'|trans }}</th>
+        <th>{{ 'Register Time'|trans }}</th>
         <th>Header</th>
       </tr>
       </thead>
       <tbody>
       {% for user in users %}
-        <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.createdAt|date }}</td>
-          <td>{{ user.updatedAt|date }}</td>
-        </tr>
+        {% include 'admin/user/table-tr.html.twig' %}
       {% endfor %}
       </tbody>
     </table>

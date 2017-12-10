@@ -21,8 +21,8 @@ class UserController extends BaseController
     public function index(Request $request)
     {
         $conditions = array();
-
-        $query = $this->getUserService()->getQueryBuilder($conditions, 'u');
+        $orderBys = array('createdAt' => 'DESC');
+        $query = $this->getUserService()->getQueryBuilder($conditions, $orderBys, 'u');
         list($paginator, $paginatorBag) = $this->paginate(
             $request,
             $query

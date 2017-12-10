@@ -5,8 +5,6 @@ namespace App\Controller;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
-use Symfony\Component\Security\Csrf\CsrfToken;
 
 class BaseController extends Controller
 {
@@ -28,6 +26,12 @@ class BaseController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @param $query
+     * @param int $limit
+     * @return array
+     */
     protected function paginate(Request $request, $query, $limit = 20)
     {
         $page = (int)$request->query->get('page');
@@ -35,7 +39,7 @@ class BaseController extends Controller
         $paginator = new Paginator($query, false);
         $paginator->getQuery()->setMaxResults($limit);
 
-        $lastPage = ceil(($paginator->count() / $paginator->getQuery()->getMaxResults())) ?: 1;
+        $lastPage = ceil($paginator->count() / $paginator->getQuery()->getMaxResults()) ?: 1;
         $page = $page <= 0 ? 1 : ($page > $lastPage ? $lastPage : $page);
         $paginator->getQuery()->setFirstResult($limit * ($page - 1));
 

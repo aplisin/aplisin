@@ -3,7 +3,6 @@
 namespace App\Command;
 
 use App\Entity\User\User;
-use App\Entity\User\UserProfile;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -38,6 +37,9 @@ class SystemInitCommand extends ContainerAwareCommand
     /**
      * @param $fields
      * @param $io SymfonyStyle
+     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
+     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
+     * @throws \InvalidArgumentException
      */
     private function initAdminUser($fields, $io)
     {
