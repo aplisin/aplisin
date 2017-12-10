@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\BaseController;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -13,8 +14,35 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class UserController extends BaseController
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function index(Request $request)
     {
-        return $this->render('admin/user/index.html.twig');
+        $page = (int)$request->query->get('page');
+
+        $conditions = array('username' => 'user');
+
+        $query = $this->getUserService()->getQueryBuilder($conditions, 'u');
+        list($paginator, $paginatorBag) = $this->paginate(
+            $request->getPathInfo(),
+            $query,
+            $page <= 0 ? 1 : $page
+        );
+
+        /* @var $paginator Paginator */
+        $users = $paginator->getIterator();
+
+        return $this->render('admin/user/index.html.twig', compact(
+            'users',
+            'paginator',
+            'paginatorBag'
+        ));
+    }
+
+    protected function getUserService()
+    {
+        return $this->get('service.user.user_service');
     }
 }

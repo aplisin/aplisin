@@ -1,0 +1,30 @@
+{% macro paginator(paginator, paginatorBag) %}
+  <div class="row">
+    <div class="col-sm-12 col-md-5">
+      <div class="dataTables_info pt-2">
+        Showing {{ paginator.query.firstResult }} to {{ paginator.query.maxResults }} of {{ paginator.count }} entries
+      </div>
+    </div>
+
+    {% if paginatorBag.lastPage|default() > 1 %}
+      <div class="col-sm-12 col-md-7">
+        <div class="btn-group float-right" role="group" aria-label="Basic example">
+          {% if paginatorBag.currentPage != paginatorBag.firstPage %}
+            <a href="{{ path(paginatorBag.uri, {page: paginatorBag.firstPage}) }}" type="button"
+               class="btn btn-outline-secondary">{{ 'First'|trans }}</a>
+          {% endif %}
+
+          {% for page in paginatorBag.pages %}
+            <a href="{{ path(paginatorBag.uri, {page: page}) }}" type="button"
+               class="btn btn-outline-secondary {% if page == paginatorBag.currentPage %}active{% endif %}">{{ page }}</a>
+          {% endfor %}
+
+          {% if paginatorBag.currentPage != paginatorBag.lastPage %}
+            <a href="{{ path(paginatorBag.uri, {page: paginatorBag.lastPage}) }}" type="button"
+               class="btn btn-outline-secondary">{{ 'Last'|trans }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}

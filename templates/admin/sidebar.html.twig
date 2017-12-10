@@ -10,9 +10,7 @@
     <a class="nav-link" data-toggle="collapse" href="#user-menu" aria-expanded="true" aria-controls="userMenu">
       <i class="fa fa-fw fa-user"></i>
       <span class="nav-link-text">{{ 'User'|trans }}</span>
-      <i
-        class="fa fa-fw {% if 'admin_user' == menu|slice(0,10) %}fa-angle-down{% else %}fa-angle-right{% endif %} float-right"
-        aria-hidden="true"></i>
+      <i class="fa fa-fw {% if 'admin_user' == menu|slice(0,10) %}fa-angle-down{% else %}fa-angle-right{% endif %} float-right" aria-hidden="true"></i>
     </a>
   </li>
   <div id="user-menu" class="collapse {% if 'admin_user' == menu|slice(0,10) %}show{% endif %}"

@@ -1,7 +1,38 @@
-{% extends 'admin/layout.html.twig' %}
+{% import 'admin/macro.html.twig' as admin_macro %}
+{% extends 'admin/main.html.twig' %}
 
 {% set menu = 'admin_user_manage' %}
 
-{% block main %}
-  Hello User
+{% block page_title %}
+  <i class="fa fa-table"></i>
+  {{ 'User Manage'|trans }}
+{% endblock %}
+
+{% block main_body %}
+  <div class="table-responsive">
+    <table class="table table-striped table table-bordered">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.createdAt|date }}</td>
+          <td>{{ user.updatedAt|date }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {{ admin_macro.paginator(paginator, paginatorBag) }}
 {% endblock %}

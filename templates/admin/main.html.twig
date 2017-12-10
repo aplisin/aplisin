@@ -1,0 +1,16 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+  <div class="card">
+    {% block main_heading %}
+      <div class="card-header">
+        {% block page_title %}{% endblock %}
+      </div>
+    {% endblock %}
+
+    <div class="card-body">
+      {% block main_body %}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}
