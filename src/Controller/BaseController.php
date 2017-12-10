@@ -28,20 +28,25 @@ class BaseController extends Controller
         ));
     }
 
-    protected function paginate(string $path, $query, $page = 1, $limit = 1)
+    protected function paginate(Request $request, $query, $limit = 20)
     {
-        $paginator = new Paginator($query, false);
-        $paginator->getQuery()
-            ->setMaxResults($limit)
-            ->setFirstResult($limit * ($page - 1));
+        $page = (int)$request->query->get('page');
 
-        $uri = explode('/', $path);
+        $paginator = new Paginator($query, false);
+        $paginator->getQuery()->setMaxResults($limit);
+
+        $lastPage = (int)round(($paginator->count() / $paginator->getQuery()->getMaxResults()));
+
+        $page = $page <= 0 ? 1 : ($page > $lastPage ? $lastPage : $page);
+        $paginator->getQuery()->setFirstResult($limit * ($page - 1));
+
+        $uri = explode('/', $request->getPathInfo());
         unset($uri[0]);
         $uri = implode('_', $uri);
 
         $paginatorBag = array(
             'firstPage' => 1,
-            'lastPage' => (int)round(($paginator->count() / $paginator->getQuery()->getMaxResults())),
+            'lastPage' => $lastPage,
             'currentPage' => $page,
             'uri' => $uri
         );

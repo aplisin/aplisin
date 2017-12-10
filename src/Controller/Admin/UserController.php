@@ -20,15 +20,12 @@ class UserController extends BaseController
      */
     public function index(Request $request)
     {
-        $page = (int)$request->query->get('page');
-
-        $conditions = array('username' => 'user');
+        $conditions = array();
 
         $query = $this->getUserService()->getQueryBuilder($conditions, 'u');
         list($paginator, $paginatorBag) = $this->paginate(
-            $request->getPathInfo(),
-            $query,
-            $page <= 0 ? 1 : $page
+            $request,
+            $query
         );
 
         /* @var $paginator Paginator */
