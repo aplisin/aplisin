@@ -35,8 +35,7 @@ class BaseController extends Controller
         $paginator = new Paginator($query, false);
         $paginator->getQuery()->setMaxResults($limit);
 
-        $lastPage = (int)round(($paginator->count() / $paginator->getQuery()->getMaxResults()));
-
+        $lastPage = ceil(($paginator->count() / $paginator->getQuery()->getMaxResults())) ?: 1;
         $page = $page <= 0 ? 1 : ($page > $lastPage ? $lastPage : $page);
         $paginator->getQuery()->setFirstResult($limit * ($page - 1));
 
