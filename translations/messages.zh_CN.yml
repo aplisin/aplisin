@@ -17,4 +17,6 @@ User: 用户
 'User Manage': 用户管理
 'Register Time': 注册时间
 First: 首页
-Last: 最后一页
+Last: 尾页
+PrevPage: 上一页
+NextPage: 下一页
