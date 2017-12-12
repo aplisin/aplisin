@@ -50,6 +50,8 @@ class BaseController extends Controller
         $paginatorBag = array(
             'firstPage' => 1,
             'lastPage' => $lastPage,
+            'prevPage' => $page - 1 < 1 ? 1 : $page - 1,
+            'nextPage' => $page + 1 > $lastPage ? $lastPage : $page + 1,
             'currentPage' => $page,
             'uri' => $uri
         );
