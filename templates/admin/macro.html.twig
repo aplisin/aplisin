@@ -21,6 +21,7 @@
 
         <li class="page-item {% if paginatorBag.currentPage == paginatorBag.lastPage %}disabled{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: paginatorBag.nextPage}) }}">{{ 'NextPage'|trans }}</a></li>
         <li class="page-item {% if paginatorBag.currentPage == paginatorBag.lastPage %}disabled{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: paginatorBag.lastPage}) }}">{{ 'Last'|trans }}</a></li>
+        {% if range %}<li class="page-item disabled"><p class="page-link">{{ 'PaginatorTotal'|trans({'%total%':paginatorBag.pages|length}) }}</p></li>{% endif %}
       </ul>
     </nav>
   {% endif %}
