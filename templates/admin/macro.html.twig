@@ -1,13 +1,23 @@
-{% macro paginator(paginator, paginatorBag, class) %}
+{% macro paginator(paginator, paginatorBag, class, range) %}
   {% if paginatorBag.lastPage|default() > 1 %}
     <nav aria-label="Page navigation">
       <ul class="pagination {{ class|default('justify-content-center') }}">
         <li class="page-item {% if paginatorBag.currentPage == paginatorBag.firstPage %}disabled{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: paginatorBag.firstPage}) }}">{{ 'First'|trans }}</a></li>
         <li class="page-item {% if paginatorBag.currentPage == paginatorBag.firstPage %}disabled{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: paginatorBag.prevPage}) }}">{{ 'PrevPage'|trans }}</a></li>
 
-        {% for page in paginatorBag.pages %}
-          <li class="page-item {% if page == paginatorBag.currentPage %}active{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: page}) }}">{{ page }}</a></li>
-        {% endfor %}
+        {% if range %}
+          {# 根据range变量显示分页的个数，如果是2则显示当前页和前后各两页 #}
+          {% set low = paginatorBag.currentPage - range < paginatorBag.firstPage ? paginatorBag.firstPage : paginatorBag.currentPage - range %}
+          {% set hight = paginatorBag.currentPage + range > paginatorBag.lastPage ? paginatorBag.lastPage : paginatorBag.currentPage + range %}
+          {% for page in range(low, hight, 1) %}
+            <li class="page-item {% if page == paginatorBag.currentPage %}active{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: page}) }}">{{ page }}</a></li>
+          {% endfor %}
+        {% else %}
+          {# 显示全部页面 #}
+          {% for page in paginatorBag.pages %}
+            <li class="page-item {% if page == paginatorBag.currentPage %}active{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: page}) }}">{{ page }}</a></li>
+          {% endfor %}
+        {% endif %}
 
         <li class="page-item {% if paginatorBag.currentPage == paginatorBag.lastPage %}disabled{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: paginatorBag.nextPage}) }}">{{ 'NextPage'|trans }}</a></li>
         <li class="page-item {% if paginatorBag.currentPage == paginatorBag.lastPage %}disabled{% endif %}"><a class="page-link" href="{{ path(paginatorBag.uri, {page: paginatorBag.lastPage}) }}">{{ 'Last'|trans }}</a></li>
