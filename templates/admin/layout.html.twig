@@ -1,0 +1,58 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html> <!--<![endif]-->
+{% set lang = app.request.getLocale() %}
+<html lang="{{ lang }}">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="Webkit">
+  <title>
+    {% block title %}
+      {# {{ config('site.site_title', 'APLISIN') }} {% if config('site.site_tagline') %} - {{ config('site.site_tagline') }}{% endif %}- Powered By Aplisin #}
+    {% endblock %}
+  </title>
+  {% block meta %}
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta content="{{ app.user.isLogin()|default(0) }}" name="is-login"/>
+  {% endblock %}
+  <!--[if lt IE 9]>
+  {% block ie_script %}
+  {% include 'web/script_ie.html.twig' %}
+  {% endblock %}
+  <![endif]-->
+  {% block stylesheets %}
+    {% include 'admin/stylesheet.html.twig' %}
+  {% endblock %}
+  {% block head_scripts %}{% endblock %}
+</head>
+
+<body class="{% if bodyClass|default('') %}{{ bodyClass }}{% endif %}">
+{% block body %}
+  {% block header %}
+    {% include 'admin/default/header.html.twig' %}
+  {% endblock %}
+
+  {% block full_content %}
+    {% block top_content %}{% endblock %}
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+    {% block bottom_content %}{% endblock %}
+  {% endblock %}
+{% endblock %}
+
+{% block footer_script %}
+  {% include 'admin/script_boot.html.twig' %}
+  {#{% include 'web/script_app.html.twig' %}#}
+{% endblock %}
+</body>
+</html>
