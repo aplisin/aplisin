@@ -1,0 +1,7 @@
+admin_platform:
+    resource: .
+    prefix: /admin
+
+admin:
+    path: /admin
+    defaults: { _controller: 'App\Controller\Admin\DefaultController::indexAction' }
