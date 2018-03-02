@@ -23,6 +23,17 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+        lazy: true
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    app.security.user.login_form_authenticator:
+        class: App\Security\User\LoginFormAuthenticator
+        autowire: true
+
+    app.service.user.auth_service:
+        class: App\Service\User\AuthService
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true

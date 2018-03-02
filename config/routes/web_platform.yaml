@@ -1,0 +1,15 @@
+homepage:
+    path: /
+    defaults: { _controller: 'App\Controller\Web\DefaultController::indexAction' }
+
+register:
+    path: /register
+    defaults: { _controller: 'App\Controller\Web\RegistrationController:registerAction' }
+
+login:
+    path: /login
+    defaults: { _controller: 'App\Controller\Web\SecurityController:loginAction' }
+
+logout:
+    path: /logout
+    defaults: { _controller: 'App\Controller\Web\SecurityController:logoutAction' }
