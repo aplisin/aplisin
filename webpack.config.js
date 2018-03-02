@@ -8,14 +8,8 @@ Encore
 
     // uncomment to define the assets of the project
     // .addEntry('web/app', './assets/web/app.js')
-    .addStyleEntry('web/app', './assets/web/app.scss')
-    .addStyleEntry('admin/app', './assets/admin/app.scss')
-
-    .addEntry('libs/fix-ie', [
-        'html5shiv',
-        'es5-shim',
-        'es5-shim/es5-sham'
-    ])
+    .addStyleEntry('web/app', './assets/web/app.less')
+    .addStyleEntry('admin/app', './assets/admin/app.less')
 
     .createSharedEntry('libs/base', [
         'jquery',
@@ -24,14 +18,14 @@ Encore
 
         // you can also extract CSS - this will create a 'vendor.css' file
         // this CSS will *not* be included in page1.css or page2.css anymore
-        './assets/libs/base.scss'
+        './assets/libs/base.less'
     ])
 
     // uncomment if you use lessfiles
     .enableLessLoader()
 
     // uncomment if you use Sass/SCSS files
-    .enableSassLoader()
+    // .enableSassLoader()
 
     // uncomment for legacy applications that require $/jQuery as a global variable
     .autoProvidejQuery()

@@ -75,6 +75,20 @@
           animation-duration: .25s;
         }
       }
+      a {
+        color: rgba(0, 0, 0, 0.56);
+        padding: 18px 0;
+        &:hover {
+          color: rgba(0, 0, 0, 0.88);
+        }
+      }
     }
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 10000s ease-in-out 0s;
 }
