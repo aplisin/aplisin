@@ -1,0 +1,22 @@
+{% extends 'web/layout.html.twig' %}
+
+{% block content %}
+  <div class="cd-content">
+    <div class="cd-row">
+      <div class="cd-panel cd-panel-sm cd-md-8 cd-md-offset-8">
+        <div class="cd-panel-heading">
+          <div class="cd-panel-title">{{ 'Log In'|trans }}</div>
+        </div>
+        <div class="cd-panel-body">
+          {{ form_start(form, {'attr': {'class':'form-login'}}) }}
+          {% if error %}
+            <div class="alert alert-danger">
+              {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+          {% endif %}
+          {{ form_end(form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

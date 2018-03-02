@@ -1,0 +1,17 @@
+{% extends 'web/layout.html.twig' %}
+
+{% block content %}
+  <div class="cd-content">
+    <div class="cd-row">
+      <div class="cd-panel cd-panel-sm cd-md-8 cd-md-offset-8">
+        <div class="cd-panel-heading">
+          <div class="cd-panel-title">{{ 'Sign Up'|trans }}</div>
+        </div>
+        <div class="cd-panel-body">
+          {{ form_start(form, {'attr': {'class':'form-signin'}}) }}
+          {{ form_end(form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
