@@ -3,32 +3,27 @@
 namespace App\Repository\User;
 
 use App\Entity\User\User;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Repository\BaseRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-/**
- * @method User|null find($id, $lockMode = null, $lockVersion = null)
- * @method User|null findOneBy(array $criteria, array $orderBy = null)
- * @method User[]    findAll()
- * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
-class UserRepository extends ServiceEntityRepository
+class UserRepository extends BaseRepository
 {
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, User::class);
     }
 
-    /*
-    public function findBySomething($value)
+    protected function declares()
     {
-        return $this->createQueryBuilder('u')
-            ->where('u.something = :value')->setParameter('value', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return array(
+            'where' => array(
+                'u.username LIKE :username',
+                'u.email LIKE :email'
+            ),
+            'orderbys' => array(
+                'createdAt',
+                'updatedAt'
+            )
+        );
     }
-    */
 }
