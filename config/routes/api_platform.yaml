@@ -1,0 +1,12 @@
+api_platform:
+    resource: .
+    prefix: /api
+
+api_login_check:
+    path: /api/login_check
+    defaults: { _controller: 'App\Controller\Api\SecurityController::loginCheckAction' }
+    methods: POST
+
+api_index:
+    path: /api/index
+    defaults: { _controller: 'App\Controller\Api\DefaultController::indexAction' }

@@ -31,6 +31,14 @@ services:
         class: App\Security\User\LoginFormAuthenticator
         autowire: true
 
+    app.security.user.jwt_token_authenticator:
+        class: App\Security\User\JwtTokenAuthenticator
+        autowire: true
+
+    app.security.user.user_provider:
+        class: App\Security\User\UserProvider
+        arguments: ['@service_container']
+
     app.service.user.auth_service:
         class: App\Service\User\AuthService
         public: true
