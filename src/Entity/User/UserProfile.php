@@ -2,12 +2,14 @@
 
 namespace App\Entity\User;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\User\UserProfileRepository")
  * @ORM\Table(name="user_profile")
+ * @ApiResource()
  */
 class UserProfile
 {
