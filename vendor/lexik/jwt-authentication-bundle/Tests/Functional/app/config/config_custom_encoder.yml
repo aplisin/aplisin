@@ -1,0 +1,18 @@
+framework:
+    secret: test
+    router:
+        resource: '%kernel.root_dir%/config/routing.yml'
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+
+lexik_jwt_authentication:
+    private_key_path:   '%kernel.root_dir%/../var/jwt/private.pem'
+    public_key_path:    '%kernel.root_dir%/../var/jwt/public.pem'
+    pass_phrase:        testing
+    encoder:
+        service: app.dummy_encoder
+
+services:
+    app.dummy_encoder:
+        class: Lexik\Bundle\JWTAuthenticationBundle\Tests\Functional\DependencyInjection\DummyEncoder

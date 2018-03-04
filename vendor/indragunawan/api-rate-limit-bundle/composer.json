@@ -1,0 +1,39 @@
+{
+    "name": "indragunawan/api-rate-limit-bundle",
+    "type": "symfony-bundle",
+    "description": "Rate limits protection for api-platform resources.",
+    "keywords": ["api-platform", "rate-limit"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Indra Gunawan",
+            "email": "hello@indra.my.id"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "api-platform/core": "^2.0",
+        "doctrine/annotations": "^1.4",
+        "symfony/cache": "^3.1.0 || ^4.0",
+        "symfony/config": "^2.7 || ^3.0 || ^4.0",
+        "symfony/dependency-injection": "^2.7 || ^3.0 || ^4.0",
+        "symfony/http-foundation": "^2.7 || ^3.0 || ^4.0",
+        "symfony/http-kernel": "^2.7 || ^3.0 || ^4.0",
+        "symfony/security-bundle": "^2.7 || ^3.0 || ^4.0",
+        "symfony/twig-bundle": "^2.7 || ^3.0 || ^4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Indragunawan\\ApiRateLimitBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "Tests/"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

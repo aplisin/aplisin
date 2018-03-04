@@ -1,0 +1,58 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.npm
+
+env:
+  global:
+    - SYMFONY_DEPRECATIONS_HELPER=weak_vendors
+    - APP_ENV=test
+
+matrix:
+  include:
+    - php: '7.0'
+    - php: '7.1'
+    - php: '7.2'
+      env: lint=1
+    - php: '7.2'
+      env: deps=low
+    - php: '7.2'
+      env: SYMFONY_DEPRECATIONS_HELPER=0
+    - php: '7.2'
+      services:
+          - postgresql
+      before_script:
+          - psql -c 'create database api_platform_test;' -U postgres
+      env: APP_ENV=postgres
+    - php: '7.2'
+      services:
+          - mysql
+      before_script:
+          - mysql -e 'CREATE DATABASE api_platform_test;'
+      env: APP_ENV=mysql
+  allow_failures:
+      env: SYMFONY_DEPRECATIONS_HELPER=0
+
+before_install:
+  - phpenv config-rm xdebug.ini || echo "xdebug not available"
+  - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - npm install -g swagger-cli
+  - if [[ $lint = 1 ]]; then wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.8.2/php-cs-fixer.phar; fi
+  - if [[ $lint = 1 ]]; then composer global require --dev 'phpstan/phpstan:^0.8'; fi
+  - export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+install:
+  - if [[ $deps != 'low' ]]; then composer update --prefer-dist --no-progress --no-suggest --ansi; fi
+  - if [[ $deps = 'low' ]]; then composer update --prefer-dist --no-progress --no-suggest --prefer-stable --prefer-lowest --ansi; fi
+
+script:
+  - vendor/bin/phpunit
+  - if [[ $APP_ENV != 'postgres' ]]; then vendor/bin/behat --format=progress; fi
+  - if [[ $APP_ENV = 'postgres' ]]; then vendor/bin/behat --tags='~@sqlite' --format=progress; fi
+  - tests/Fixtures/app/console api:swagger:export > swagger.json && swagger-cli validate swagger.json && rm swagger.json
+  - if [[ $lint = 1 ]]; then php php-cs-fixer.phar fix --dry-run --diff --no-ansi; fi
+  - if [[ $lint = 1 ]]; then phpstan analyse -c phpstan.neon -l5 --ansi src tests; fi
