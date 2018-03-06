@@ -13,6 +13,11 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'f0e7e63bbb278a92db02393536748c5f' => __DIR__ . '/..' . '/overtrue/wechat/src/Kernel/Support/Helpers.php',
+        '6747f579ad6817f318cc3a7e7a0abb93' => __DIR__ . '/..' . '/overtrue/wechat/src/Kernel/Helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -80,6 +85,7 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bundle\\DebugBundle\\' => 27,
             'Symfony\\Bridge\\Twig\\' => 20,
+            'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
@@ -91,9 +97,14 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Link\\' => 9,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PackageVersions\\' => 16,
+        ),
+        'O' => 
+        array (
+            'Overtrue\\Socialite\\' => 19,
         ),
         'N' => 
         array (
@@ -112,6 +123,12 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         array (
             'Indragunawan\\ApiRateLimitBundle\\' => 32,
         ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+        ),
         'F' => 
         array (
             'Fig\\Link\\' => 9,
@@ -119,6 +136,8 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
+            'EasyWeChat\\' => 11,
+            'EasyWeChatComposer\\' => 19,
             'EasyCorp\\EasyLog\\' => 17,
         ),
         'D' => 
@@ -345,6 +364,10 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         array (
             0 => __DIR__ . '/..' . '/symfony/twig-bridge',
         ),
+        'Symfony\\Bridge\\PsrHttpMessage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
+        ),
         'Symfony\\Bridge\\PhpUnit\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/phpunit-bridge',
@@ -377,6 +400,10 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         array (
             0 => __DIR__ . '/..' . '/psr/link/src',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -388,6 +415,10 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
+        'Overtrue\\Socialite\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/overtrue/socialite/src',
         ),
         'Negotiation\\' => 
         array (
@@ -409,6 +440,18 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         array (
             0 => __DIR__ . '/..' . '/indragunawan/api-rate-limit-bundle',
         ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
         'Fig\\Link\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
@@ -416,6 +459,14 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
+        ),
+        'EasyWeChat\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/overtrue/wechat/src',
+        ),
+        'EasyWeChatComposer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easywechat-composer/easywechat-composer/src',
         ),
         'EasyCorp\\EasyLog\\' => 
         array (
@@ -488,6 +539,10 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
             'ProxyManager\\' => 
             array (
                 0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
+            ),
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
             ),
         ),
         'G' => 
