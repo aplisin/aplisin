@@ -15,7 +15,22 @@
 
     <ul>
       {% if app.user %}
-        <li><a href="{{ path('logout') }}">{{ 'Log Out'|trans }}</a></li>
+        {% if is_granted('ROLE_ADMIN') %}
+          <li class="cd-pv10">
+          <div class="cd-dropdown" data-toggle="cd-dropdown">
+            <button class="cd-btn cd-btn-primary">
+              {{ 'Dashboard'|trans }} <i class="cd-icon cd-icon-arrow-down"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="{{ path('admin') }}">{{ 'Dashboard'|trans }}</a></li>
+              <li><a href="{{ path('logout') }}">{{ 'Log Out'|trans }}</a></li>
+            </ul>
+          </div>
+        </li>
+        {% else %}
+          <li><a href="{{ path('logout') }}">{{ 'Log Out'|trans }}</a></li>
+        {% endif %}
+        <li>{{ app.user.username }}</li>
       {% else %}
         <li class="{% if app.request.getRequestUri == path('register') %}active{% endif %}">
           <a href="{{ path('register') }}">{{ 'Sign Up'|trans }}</a>

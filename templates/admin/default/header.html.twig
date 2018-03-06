@@ -1,48 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">APLISIN</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav mr-5">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('admin') }}">{{ 'Home'|trans }} <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="{{ 'Search'|trans }}">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">{{ 'Search'|trans }}</button>
-      </form>
-      <ul class="navbar-nav justify-content-end ml-auto user-nav">
-        {% if app.user %}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ app.user.username }}
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              {% if is_granted('ROLE_ADMIN') %}
-                <a class="dropdown-item" href="{{ path('admin') }}">{{ 'Dashboard'|trans }}</a>
-              {% endif %}
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ path('logout') }}">{{ 'Log Out'|trans }}</a>
-            </div>
-          </li>
-        {% else %}
-          <li class="nav-item"><a href="" class="nav-link">{{ 'Sign Up'|trans }}</a></li>
-          <li class="nav-item"><a href="" class="nav-link">{{ 'Log In'|trans }}</a></li>
-        {% endif %}
-      </ul>
-    </div>
+<header class="site-header">
+  <div class="site-header__logo">
+    <a href="{{ path('admin') }}">{{ 'Dashboard'|trans }}</a>
   </div>
-</nav>
+  <div class="site-header__nav cd-clearfix">
+    <ul style="float:left;">
+      <li class="{% if app.request.getRequestUri == path('homepage') %}active{% endif %}">
+        <a href="{{ path('admin') }}">{{ 'User'|trans }}</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li class="cd-pv10">
+        <div class="cd-dropdown" data-toggle="cd-dropdown">
+          <button class="cd-btn cd-btn-primary">
+            {{ 'Homepage'|trans }} <i class="cd-icon cd-icon-arrow-down"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="{{ path('homepage') }}">{{ 'Homepage'|trans }}</a></li>
+            <li><a href="{{ path('logout') }}">{{ 'Log Out'|trans }}</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>

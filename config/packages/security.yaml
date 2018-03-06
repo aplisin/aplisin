@@ -6,6 +6,7 @@ security:
 
     encoders:
         App\Security\User\CurrentUser: bcrypt
+        App\Entity\User\User: bcrypt
 
     firewalls:
         dev:

@@ -1,7 +1,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
+    locale: 'zh_CN'
+    baidu_translate_appid: '%env(BAIDU_TRANSLATE_APPID)%'
+    baidu_translate_secret_key: '%env(BAIDU_TRANSLATE_SECRET_KEY)%'
 
 services:
     # default configuration for services in *this* file
@@ -48,6 +50,21 @@ services:
 
     app.service.user.user_service:
         class: App\Service\User\UserService
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true
+
+    app.service.system.system_initializer_service:
+        class: App\Service\System\SystemInitializerService
+        public: true
+        arguments: ['@?']
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true
+
+    app.service.translate.baidu_translate_service:
+        class: App\Service\Translate\BaiduTranslateService
         public: true
         calls:
             - [setContainer, ['@service_container']]
