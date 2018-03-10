@@ -4,6 +4,9 @@ security:
         user_provider:
             id: app.security.user.user_provider
 
+        users:
+            entity: { class: App\Entity\User\User }
+
     encoders:
         App\Security\User\CurrentUser: bcrypt
         App\Entity\User\User: bcrypt

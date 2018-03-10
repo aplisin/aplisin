@@ -17,16 +17,16 @@ class RegistrationUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, array('label' => 'Username', 'required' => true, 'attr' => array('maxlength' => 32)))
-            ->add('email', EmailType::class, array('label' => 'Email', 'required' => true, 'attr' => array('maxlength' => 64)))
-            ->add('password', RepeatedType::class, array(
+            ->add('username', TextType::class, ['label' => 'Username', 'required' => true, 'attr' => ['maxlength' => 32]])
+            ->add('email', EmailType::class, ['label' => 'Email', 'required' => true, 'attr' => ['maxlength' => 64]])
+            ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'attr' => array('maxlength' => 18),
+                'attr' => ['maxlength' => 18],
                 'required' => true,
-                'first_options' => array('label' => 'Password'),
-                'second_options' => array('label' => 'Confirm Password')
-            ))
-            ->add('submit', SubmitType::class, array('label' => 'Sign Up', 'attr' => array('class' => 'cd-btn cd-btn-primary')));
+                'first_options' => ['label' => 'Password'],
+                'second_options' => ['label' => 'Confirm Password']
+            ])
+            ->add('submit', SubmitType::class, ['label' => 'Sign Up', 'attr' => ['class' => 'cd-btn cd-btn-primary']]);
     }
 
     /**

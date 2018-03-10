@@ -5,3 +5,7 @@ admin_platform:
 admin:
     path: /admin
     defaults: { _controller: 'App\Controller\Admin\DefaultController::indexAction' }
+
+admin_user:
+    path:  /admin/user
+    defaults: { _controller: 'App\Controller\Admin\UserController::indexAction' }

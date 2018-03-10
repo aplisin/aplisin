@@ -3,4 +3,4 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
-        - 'form/fields.html.twig'
+        - 'form/codeages_design_layout.html.twig'
