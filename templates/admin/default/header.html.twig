@@ -4,8 +4,8 @@
   </div>
   <div class="site-header__nav cd-clearfix">
     <ul style="float:left;">
-      <li class="{% if app.request.getRequestUri == path('homepage') %}active{% endif %}">
-        <a href="{{ path('admin') }}">{{ 'User'|trans }}</a>
+      <li class="{% if app.request.getRequestUri == path('admin_user') %}active{% endif %}">
+        <a href="{{ path('admin_user') }}">{{ 'User'|trans }}</a>
       </li>
     </ul>
 

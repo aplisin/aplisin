@@ -27,6 +27,7 @@
 
   {% block stylesheets %}
     {% include 'web/stylesheet.html.twig' %}
+    {% include 'web/css_loader.html.twig' %}
   {% endblock %}
   {% block head_scripts %}{% endblock %}
 </head>
@@ -39,7 +40,7 @@
 
   {% block full_content %}
     {% block top_content %}{% endblock %}
-    <div class="cd-container" style="position: relative; top: 56px;">
+    <div class="cd-container" style="position: relative; top: 51px;">
       {% block content %}{% endblock %}
     </div>
     {% block bottom_content %}{% endblock %}
@@ -48,7 +49,7 @@
 
 {% block footer_script %}
   {% include 'web/script_boot.html.twig' %}
-  {#{% include 'web/script_app.html.twig' %}#}
+  {% include 'web/script_app.html.twig' %}
 {% endblock %}
 </body>
 </html>

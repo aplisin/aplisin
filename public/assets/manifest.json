@@ -1,10 +1,14 @@
 {
   "assets/admin/app.css": "/assets/admin/app.css",
+  "assets/admin/app.js": "/assets/admin/app.js",
+  "assets/admin/user/index.css": "/assets/admin/user/index.css",
+  "assets/admin/user/index.js": "/assets/admin/user/index.js",
   "assets/fonts/cd-icon.eot?t=1515049352921": "/assets/fonts/cd-icon.db6c4ac9.eot",
   "assets/fonts/cd-icon.ttf?t=1515049352921": "/assets/fonts/cd-icon.1279e4f6.ttf",
   "assets/images/cd-icon.svg?t=1515049352921": "/assets/images/cd-icon.55adfd65.svg",
   "assets/libs/base.css": "/assets/libs/base.css",
   "assets/libs/base.js": "/assets/libs/base.js",
   "assets/manifest.js": "/assets/manifest.js",
-  "assets/web/app.css": "/assets/web/app.css"
+  "assets/web/app.css": "/assets/web/app.css",
+  "assets/web/app.js": "/assets/web/app.js"
 }
