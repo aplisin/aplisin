@@ -1,17 +1,17 @@
 [
     {
         "name": "api-platform/core",
-        "version": "v2.2.3",
-        "version_normalized": "2.2.3.0",
+        "version": "v2.2.4",
+        "version_normalized": "2.2.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/api-platform/core.git",
-            "reference": "7bdead79ef72fd5c5dbdb764024522b053517feb"
+            "reference": "7ad11ef1b9467c7848bcc1f8c8098ef8c4b3180b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/api-platform/core/7bdead79ef72fd5c5dbdb764024522b053517feb.zip",
-            "reference": "7bdead79ef72fd5c5dbdb764024522b053517feb",
+            "url": "https://files.phpcomposer.com/files/api-platform/core/7ad11ef1b9467c7848bcc1f8c8098ef8c4b3180b.zip",
+            "reference": "7ad11ef1b9467c7848bcc1f8c8098ef8c4b3180b",
             "shasum": ""
         },
         "require": {
@@ -82,7 +82,7 @@
             "symfony/twig-bundle": "To use the Swagger UI integration.",
             "webonyx/graphql-php": "To support GraphQL."
         },
-        "time": "2018-03-05T09:12:51+00:00",
+        "time": "2018-03-09T15:50:47+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
