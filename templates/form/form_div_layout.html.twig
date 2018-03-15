@@ -56,11 +56,11 @@
     {% set required = false %}
   {%- endif -%}
   <div {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
-    <input type="hidden" name="{{ full_name }}" value="">
-    <div class="select-value">{%- if placeholder is not none -%}{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}{%- elseif choices[0] is not none -%}{{ choices[0].label|trans({}, translation_domain) }}{%- endif -%}</div>
+    <input type="hidden" name="{{ full_name }}" value="{{ value is not empty ? value : (choices is not empty ? choices[0].value : '') }}">
+    <div class="select-value">{%- if placeholder is not none -%}{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}{%- elseif choices is not empty  -%}{{ choices[0].label|trans({}, translation_domain) }}{%- endif -%}</div>
     <ul class="select-options">
       {%- if placeholder is not none -%}
-        <li value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}</li>
+        <li data-value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}</li>
       {%- endif -%}
       {%- if preferred_choices|length > 0 -%}
         {% set options = preferred_choices %}
@@ -83,7 +83,7 @@
         {{- block('choice_widget_options') -}}
       </optgroup>
     {%- else -%}
-      <li value="{{ choice.value }}"{% if choice.attr %}{% with { attr: choice.attr } %}{{ block('attributes') }}{% endwith %}{% endif %}{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice_translation_domain is same as(false) ? choice.label : choice.label|trans({}, choice_translation_domain) }}</li>
+      <li data-value="{{ choice.value }}"{% if choice.attr %}{% with { attr: choice.attr } %}{{ block('attributes') }}{% endwith %}{% endif %}{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice_translation_domain is same as(false) ? choice.label : choice.label|trans({}, choice_translation_domain) }}</li>
     {%- endif -%}
   {% endfor %}
 {%- endblock choice_widget_options -%}

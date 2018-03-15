@@ -59,7 +59,7 @@
 
 {%- block widget_attributes -%}
   {%- if not valid %}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' cd-form-control is-invalid')|trim}) %}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' is-invalid')|trim}) %}
   {% endif -%}
   {{ parent() }}
 {%- endblock widget_attributes -%}
@@ -177,12 +177,18 @@
 
 {% block form_errors -%}
   {%- if errors|length > 0 -%}
-    <div class="{% if form is not rootform %}invalid-feedback{% else %}alert alert-danger{% endif %}">
-      <ul class="list-unstyled mb-0">
-        {%- for error in errors -%}
-          <li>{{ error.message }}</li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  {%- endif %}
+    {% if form is not rootform %}
+      {%- for error in errors -%}
+        <p class="form-error-message cd-mt0">{{ error.message }}</p>
+      {%- endfor -%}
+    {% else %}
+      <div class="alert alert-danger">
+        <ul class="list-unstyled mb-0">
+          {%- for error in errors -%}
+            <li>{{ error.message }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {% endif %}
+  {%- endif -%}
 {%- endblock form_errors %}

@@ -1,0 +1,24 @@
+<tr>
+  <td>{{ user.id }}</td>
+  <td>{{ user.username }}</td>
+  <td>{{ user.email }}</td>
+  <td>{{ user.verifiedMobile|default('--') }}</td>
+  <td>{{ user.createdAt|date('Y-n-d H:i:s') }}</td>
+  <td>{{ user.updatedAt|date('Y-n-d H:i:s') }}</td>
+  <td>
+    <a href="javascript:;" class="cd-link-primary cd-mr8">{{ 'View'|trans }}</a>
+    <div class="cd-dropdown cd-dropdown-right" data-toggle="cd-dropdown">
+      <a href="javascript:;" class="cd-link-primary">
+        {{ 'More'|trans }}<i class="cd-icon cd-icon-arrow-down"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="javascript:;">下拉菜单项一</a>
+        </li>
+        <li>
+          <a href="javascript:;">下拉菜单项二</a>
+        </li>
+      </ul>
+    </div>
+  </td>
+</tr>

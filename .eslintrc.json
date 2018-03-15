@@ -11,7 +11,8 @@
     "$": true,
     "app": true,
     "Translator": true,
-    "Swiper": true
+    "Swiper": true,
+    "cd": true
   },
   "rules": {
     "func-names": 0,
