@@ -5,8 +5,17 @@ Dashboard: 管理后台
 'Log Out': 退出登录
 User: 用户
 Homepage: 返回首页
-Username: 用户名
+User Name: 用户名
 Email: 邮箱
 Password: 密码
 'Confirm Password': 确认密码
 'User Management': 用户管理
+Numbering: 编号
+'Mobile Number': 手机号
+'Register Tim': 注册时间
+'Updated Time': 更新时间
+Actions: 操作
+View: 查看
+More: 更多
+'No User Record': 暂无用户记录
+Keywords: 关键词

@@ -1,6 +1,10 @@
 @import '~codeages-design/src/less/variables.less';
 @import './mixins.less';
+@import './common/common.less';
 @import './other/common.less';
+
+// 组件---------------------------------------------------------------//
+@import './components/form.less'; // 表单
 
 .site-header {
   position: fixed;
@@ -88,11 +92,4 @@
       }
     }
   }
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 10000s ease-in-out 0s;
 }

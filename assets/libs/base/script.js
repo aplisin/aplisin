@@ -9,6 +9,7 @@ const script = (scripts, fn, target) => {
     !scripts.length ? loadJs(s, fn, target) : loadJs(s, callback, target);
   }());
 };
+
 const loadJs = (path, fn, target) => {
   let elem = document.createElement('script'), loaded;
   elem.onload = elem.onerror = elem.onreadystatechange = () => {
