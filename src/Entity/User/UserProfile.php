@@ -21,7 +21,7 @@ class UserProfile
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, options={"default":""})
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $truename;
 

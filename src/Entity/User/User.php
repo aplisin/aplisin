@@ -29,7 +29,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank()
      * @Assert\Length(min="4", max="32")
-     * @AppAssert\ContainsAlphanumeric()
+     * @AppAssert\Username()
      */
     private $username;
 
@@ -42,6 +42,12 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @ORM\Column(name="verified_mobile", type="integer", length=32, unique=true, nullable=true)
+     * @AppAssert\Mobile()
+     */
+    private $verifiedMobile;
+
+    /**
      * @ORM\Column(type="string", length=64, unique=true)
      * @Assert\NotBlank()
      * @Assert\Length(min="6", max="18")
@@ -49,12 +55,12 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="json_array", length=255)
+     * @ORM\Column(type="simple_array", length=255, nullable=true)
      */
     private $roles;
 
     /**
-     * @ORM\Column(name="is_active", type="boolean", options={"default":true})
+     * @ORM\Column(name="is_active", type="boolean", nullable=true, options={"default":true})
      */
     private $isActive;
 
@@ -118,6 +124,22 @@ class User implements UserInterface
     {
         $this->email = $email;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerifiedMobile()
+    {
+        return $this->verifiedMobile;
+    }
+
+    /**
+     * @param mixed $verifiedMobile
+     */
+    public function setVerifiedMobile($verifiedMobile)
+    {
+        $this->verifiedMobile = $verifiedMobile;
     }
 
     /**

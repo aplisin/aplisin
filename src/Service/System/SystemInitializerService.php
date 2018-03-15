@@ -37,7 +37,7 @@ class SystemInitializerService extends BaseService
                 ->setUsername($fields['username'])
                 ->setEmail($fields['email'])
                 ->setPassword($fields['password'])
-                ->setRoles(array('ROLE_SUPER_ADMIN'));
+                ->setRoles(['ROLE_SUPER_ADMIN']);
 
             $this->getAuthService()->register($user);
         }

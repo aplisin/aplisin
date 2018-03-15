@@ -2,7 +2,6 @@
 
 namespace App\Form\User;
 
-use App\Entity\User\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
@@ -16,7 +15,7 @@ class SearchUserType extends AbstractType
         $builder
             ->add('keywordType', ChoiceType::class, [
                 'choices' => [
-                    'Username' => 'username',
+                    'User Name' => 'username',
                     'Email' => 'email'
                 ],
                 'label' => false,

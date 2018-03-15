@@ -30,7 +30,7 @@ abstract class BaseRepository extends ServiceEntityRepository
     {
         $builder = $this->createQueryBuilder($alias, $indexBy);
         $declares = $this->declares();
-        $declares['where'] = $declares['where'] ?? array();
+        $declares['where'] = $declares['where'] ?? [];
 
         foreach ($declares['where'] as $where) {
             $key = explode(':', $where)[1];
@@ -60,7 +60,7 @@ abstract class BaseRepository extends ServiceEntityRepository
             }
         }
 
-        foreach ($this->orderbys ?: array() as $order => $sort) {
+        foreach ($this->orderbys ?: [] as $order => $sort) {
             try {
                 $this->checkOrderBy($order, $sort, $declares['orderbys']);
             } catch (InvalidArgumentException $e) {

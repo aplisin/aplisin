@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
-class ContainsAlphanumeric extends Constraint
+class Username extends Constraint
 {
     /*
      * Any public properties become valid options for the annotation.

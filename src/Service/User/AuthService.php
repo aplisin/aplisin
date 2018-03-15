@@ -40,13 +40,8 @@ class AuthService extends BaseService
      */
     private function filterUserFields($user)
     {
-
-        if ($user->getisActive() === null) {
-            $user->setIsActive(true);
-        }
-
         if ($user->getRoles() === null) {
-            $user->setRoles(array('ROLE_USER'));
+            $user->setRoles(['ROLE_USER']);
         }
 
         return $user;
@@ -58,10 +53,6 @@ class AuthService extends BaseService
      */
     private function filterProfileFields($userProfile)
     {
-        if ($userProfile->getTruename() === null) {
-            $userProfile->setTruename('');
-        }
-
         return $userProfile;
     }
 

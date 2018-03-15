@@ -15,15 +15,15 @@ class UserRepository extends BaseRepository
 
     protected function declares()
     {
-        return array(
-            'where' => array(
+        return [
+            'where' => [
                 'u.username LIKE :username',
                 'u.email LIKE :email'
-            ),
-            'orderbys' => array(
+            ],
+            'orderbys' => [
                 'createdAt',
                 'updatedAt'
-            )
-        );
+            ]
+        ];
     }
 }
