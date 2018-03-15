@@ -20,6 +20,7 @@ security:
             pattern: ^/api/
             stateless: true
             anonymous: true
+            provider: user_provider
             guard:
                 authenticators:
                     - app.security.user.jwt_token_authenticator
@@ -27,6 +28,7 @@ security:
         main:
             pattern: ^/
             anonymous: true
+            provider: user_provider
             guard:
                 authenticators:
                     - app.security.user.login_form_authenticator
@@ -41,6 +43,7 @@ security:
                 login_path: login
                 check_path: login_check
                 csrf_token_id: authenticate
+                provider: user_provider
 
             logout:
                 path: /logout
