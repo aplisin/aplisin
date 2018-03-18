@@ -1941,6 +1941,59 @@
         ]
     },
     {
+        "name": "nikic/php-parser",
+        "version": "v4.0.0",
+        "version_normalized": "4.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nikic/PHP-Parser.git",
+            "reference": "9c18e3db49fa469f5feffe40dbd7b1ec2b61e41f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/nikic/PHP-Parser/9c18e3db49fa469f5feffe40dbd7b1ec2b61e41f.zip",
+            "reference": "9c18e3db49fa469f5feffe40dbd7b1ec2b61e41f",
+            "shasum": ""
+        },
+        "require": {
+            "ext-tokenizer": "*",
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^6.5 || ^7.0"
+        },
+        "time": "2018-02-28T20:39:30+00:00",
+        "bin": [
+            "bin/php-parse"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpParser\\": "lib/PhpParser"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Nikita Popov"
+            }
+        ],
+        "description": "A PHP parser written in PHP",
+        "keywords": [
+            "parser",
+            "php"
+        ]
+    },
+    {
         "name": "ocramius/package-versions",
         "version": "1.3.0",
         "version_normalized": "1.3.0.0",
@@ -4595,35 +4648,40 @@
     },
     {
         "name": "symfony/maker-bundle",
-        "version": "v1.2.0",
-        "version_normalized": "1.2.0.0",
+        "version": "v1.3.0",
+        "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/maker-bundle.git",
-            "reference": "9db72995231c12c701249f07743c0591ccf70e73"
+            "reference": "60df153a907b187cc3fd050dd6de7746ddc833b7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/maker-bundle/9db72995231c12c701249f07743c0591ccf70e73.zip",
-            "reference": "9db72995231c12c701249f07743c0591ccf70e73",
+            "url": "https://files.phpcomposer.com/files/symfony/maker-bundle/60df153a907b187cc3fd050dd6de7746ddc833b7.zip",
+            "reference": "60df153a907b187cc3fd050dd6de7746ddc833b7",
             "shasum": ""
         },
         "require": {
-            "php": "^7.0.8",
+            "doctrine/inflector": "^1.2",
+            "nikic/php-parser": "^4.0",
+            "php": "^7.1.3",
             "symfony/config": "^3.4|^4.0",
             "symfony/console": "^3.4|^4.0",
             "symfony/dependency-injection": "^3.4|^4.0",
             "symfony/filesystem": "^3.4|^4.0",
+            "symfony/finder": "^3.4|^4.0",
             "symfony/framework-bundle": "^3.4|^4.0",
             "symfony/http-kernel": "^3.4|^4.0"
         },
         "require-dev": {
             "allocine/twigcs": "^3.0",
+            "doctrine/doctrine-bundle": "^1.8",
+            "doctrine/orm": "^2.6",
             "friendsofphp/php-cs-fixer": "^2.8",
             "symfony/phpunit-bridge": "^3.4|^4.0",
             "symfony/process": "^3.4|^4.0"
         },
-        "time": "2018-03-14T01:02:47+00:00",
+        "time": "2018-03-17T19:51:02+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {

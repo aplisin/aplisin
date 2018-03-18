@@ -101,6 +101,7 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
+            'PhpParser\\' => 10,
             'PackageVersions\\' => 16,
         ),
         'O' => 
@@ -416,6 +417,10 @@ class ComposerStaticInit5b39ab23e9f7b8e0881dc8e970ba661a
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'PhpParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
         'PackageVersions\\' => 
         array (
