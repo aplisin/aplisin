@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Controller\BaseController;
+use App\Entity\User\User;
 use App\Form\User\SearchUserType;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -15,6 +17,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class UserController extends BaseController
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction(Request $request)
     {
         $form = $this->createForm(
@@ -49,6 +55,16 @@ class UserController extends BaseController
             'paginator' => $paginator,
             'paginatorBag' => $paginatorBag
         ));
+    }
+
+    /**
+     * @param User $user
+     * @Cache(lastModified="user.getUpdatedAt()", etag="'User' ~ user.getId() ~ user.getUpdatedAt().getTimestamp()")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction(User $user)
+    {
+        return $this->render('admin/user/show-modal.html.twig', compact('user'));
     }
 
     protected function getUserService()

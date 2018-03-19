@@ -32,7 +32,7 @@
   {% block head_scripts %}{% endblock %}
 </head>
 
-<body class="{% if bodyClass|default('') %}{{ bodyClass }}{% endif %}">
+<body class="{{ bodyClass|default(null) }}">
 {% block body %}
   {% block header %}
     {% include 'web/default/header.html.twig' %}
@@ -45,6 +45,8 @@
     </div>
     {% block bottom_content %}{% endblock %}
   {% endblock %}
+
+  <div id="cd-modal" class="cd-modal cd-fade" style="display: none;"></div>
 {% endblock %}
 
 {% block footer_script %}

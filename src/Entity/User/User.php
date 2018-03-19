@@ -193,7 +193,7 @@ class User implements UserInterface
     /**
      * @return mixed
      */
-    public function getisActive()
+    public function getIsActive()
     {
         return $this->isActive;
     }

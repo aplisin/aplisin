@@ -23,7 +23,7 @@ class UserProfile
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $truename;
+    private $fullname;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
@@ -53,19 +53,17 @@ class UserProfile
     /**
      * @return mixed
      */
-    public function getTruename()
+    public function getFullname()
     {
-        return $this->truename;
+        return $this->fullname;
     }
 
     /**
-     * @param mixed $truename
-     * @return UserProfile
+     * @param mixed $fullname
      */
-    public function setTruename($truename)
+    public function setFullname($fullname)
     {
-        $this->truename = $truename;
-        return $this;
+        $this->fullname = $fullname;
     }
 
     /**

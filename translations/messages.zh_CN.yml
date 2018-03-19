@@ -5,7 +5,7 @@ Dashboard: 管理后台
 'Log Out': 退出登录
 User: 用户
 Homepage: 返回首页
-User Name: 用户名
+'User Name': 用户名
 Email: 邮箱
 Password: 密码
 'Confirm Password': 确认密码
@@ -19,3 +19,9 @@ View: 查看
 More: 更多
 'No User Record': 暂无用户记录
 Keywords: 关键词
+'Personal details': 个人资料
+close: 关闭
+'User Groups': 用户组
+'Register Time': 注册时间
+Full Name: 姓名
+'Not Available': 暂无

@@ -26,7 +26,7 @@
   {% endblock %}
   <!--[if lt IE 9]>
   {% block ie_script %}
-  {% include 'web/script_ie.html.twig' %}
+    {% include 'web/script_ie.html.twig' %}
   {% endblock %}
   <![endif]-->
   {% block stylesheets %}
@@ -36,7 +36,7 @@
   {% block head_scripts %}{% endblock %}
 </head>
 
-<body class="{% if bodyClass|default('') %}{{ bodyClass }}{% endif %}">
+<body class="{{ bodyClass|default(null) }}">
 {% block body %}
   {% block header %}
     {% include 'admin/default/header.html.twig' %}
@@ -49,6 +49,8 @@
     </div>
     {% block bottom_content %}{% endblock %}
   {% endblock %}
+
+  <div id="cd-modal" class="cd-modal cd-fade" style="display: none;"></div>
 {% endblock %}
 
 {% block footer_script %}

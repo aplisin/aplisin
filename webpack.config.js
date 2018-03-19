@@ -14,16 +14,16 @@ Encore
   // the public path used by the web server to access the previous directory
   .setPublicPath('/assets')
 
-  .createSharedEntry('libs/base', [
+  .createSharedEntry('libs/libs', [
     'jquery',
     'codeages-design',
-    'codeages-design/src/less/codeages-design.less',
+    'codeages-design/src/less/codeages-design.less'
 
     // you can also extract CSS - this will create a 'vendor.css' file
     // this CSS will *not* be included in page1.css or page2.css anymore
-    './assets/libs/base',
-    './assets/libs/base.less'
   ])
+
+  .addEntry('libs/base', './assets/libs/base')
 
   // uncomment if you use lessfiles
   .enableLessLoader()

@@ -1,0 +1,39 @@
+{% extends 'admin/modal-layout.html.twig' %}
+
+{% block title %}{{ 'Personal details'|trans }}{% endblock %}
+
+{% block modal_body %}
+  <div class="cd-table-responsive cd-mb0">
+    <table class="cd-table">
+      <tbody>
+      <tr>
+        <td width="25%">{{ 'User Name'|trans }}</td>
+        <td width="75%">{{ user.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ 'Email'|trans }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <td>{{ 'User Groups'|trans }}</td>
+        <td>{{ user.Roles|join(' ') }}</td>
+      </tr>
+      <tr>
+        <td>{{ 'Register Time'|trans }}</td>
+        <td>{{ user.createdAt|date('Y-n-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <td>{{ 'Full Name'|trans }}</td>
+        <td>{{ user.userProfile.fullname|default('Not Available'|trans) }}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
+{% block modal_footer %}
+  <button class="cd-btn cd-btn-primary cd-btn-lg" type="button" data-toggle="cd-modal-ok">
+    {{ 'close'|trans }}
+  </button>
+{% endblock %}

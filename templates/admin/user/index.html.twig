@@ -1,7 +1,9 @@
 {% extends 'admin/layout.html.twig' %}
 
-{% do script(['user/index.js'])  %}
-{% do css(['user/index.css'])  %}
+{% set side_nav = 'user-management' %}
+
+{% do script(['user/index.js']) %}
+{% do css(['user/index.css']) %}
 
 {% block content %}
   <div class="cd-content">
@@ -30,7 +32,9 @@
             {% for user in users %}
               {% include 'admin/user/table-tr.html.twig' %}
             {% else %}
-              <tr class="empty"><td colspan="20">{{ 'No User Record'|trans }}</td></tr>
+              <tr class="empty">
+                <td colspan="20">{{ 'No User Record'|trans }}</td>
+              </tr>
             {% endfor %}
             </tbody>
           </table>

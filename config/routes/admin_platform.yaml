@@ -9,3 +9,9 @@ admin:
 admin_user:
     path:  /admin/user
     defaults: { _controller: 'App\Controller\Admin\UserController::indexAction' }
+
+admin_user_show:
+    path:  /admin/user/{id}
+    defaults: { _controller: 'App\Controller\Admin\UserController::showAction' }
+    requirements:
+        id: \d+

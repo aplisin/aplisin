@@ -1,6 +1,6 @@
 <div class="cd-sidebar">
   <ul class="cd-sidebar__list">
     <li class="cd-sidebar__heading">{{ 'User'|trans }}</li>
-    <li class="cd-sidebar__item {% if app.request.getRequestUri == path('admin_user') %}active{% endif %}"><a href="{{ path('admin_user') }}">{{ 'User Management'|trans }}</a></li>
+    <li class="cd-sidebar__item {% if side_nav == 'user-management' %}active{% endif %}"><a href="{{ path('admin_user') }}">{{ 'User Management'|trans }}</a></li>
   </ul>
 </div>

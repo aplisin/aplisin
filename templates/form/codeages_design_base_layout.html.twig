@@ -138,7 +138,8 @@
 {%- endblock dateinterval_widget -%}
 
 {% block choice_widget_collapsed -%}
-  {%- set attr = attr|merge({class: (attr.class|default('') ~ ' cd-select')|trim}) -%}
+  {% set type = multiple ? 'cd-select-multiple': 'cd-select-single' %}
+  {%- set attr = attr|merge({class: (attr.class|default('') ~ ' cd-select ' ~ type)|trim}) -%}
   {{- parent() -}}
 {%- endblock choice_widget_collapsed %}
 

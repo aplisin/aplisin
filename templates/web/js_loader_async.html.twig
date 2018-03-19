@@ -6,7 +6,7 @@
       {% if '//' in path %}
       "{{ path ~ '?' ~ asset_version('')}}",
       {% else %}
-      "{{ asset('static-dist/' ~ path) }}",
+      "{{ asset('assets/web/' ~ path) }}",
       {% endif %}
       {% endfor %}
     ];
