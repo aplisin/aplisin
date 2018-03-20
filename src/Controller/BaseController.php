@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
+use App\Common\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -39,9 +39,7 @@ abstract class BaseController extends Controller
         $page = $page <= 0 ? 1 : ($page > $lastPage ? $lastPage : $page);
         $paginator->getQuery()->setFirstResult($limit * ($page - 1));
 
-        $uri = explode('/', $request->getPathInfo());
-        unset($uri[0]);
-        $uri = implode('_', $uri);
+        $paginator->setBaseUrl($request->getRequestUri());
 
         $paginatorBag = [
             'firstPage' => 1,
@@ -49,7 +47,6 @@ abstract class BaseController extends Controller
             'currentPage' => $page,
             'prevPage' => $page - 1 < 1 ? 1 : $page - 1,
             'nextPage' => $page + 1 > $lastPage ? $lastPage : $page + 1,
-            'uri' => $uri
         ];
 
         $previousRange = round(6 / 2);
@@ -68,6 +65,6 @@ abstract class BaseController extends Controller
         }
         $paginatorBag['pages'] = $pages;
 
-        return array($paginator, $paginatorBag);
+        return [$paginator, $paginatorBag];
     }
 }

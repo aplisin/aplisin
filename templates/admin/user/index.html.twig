@@ -1,3 +1,4 @@
+{% import "macro.html.twig" as macro %}
 {% extends 'admin/layout.html.twig' %}
 
 {% set side_nav = 'user-management' %}
@@ -38,6 +39,7 @@
             {% endfor %}
             </tbody>
           </table>
+          {{ macro.paginator(paginator, paginatorBag, app.request.query.get(1)|default([])) }}
         </div>
       </div>
     </div>

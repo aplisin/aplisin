@@ -44,6 +44,7 @@ security:
                 check_path: login_check
                 csrf_token_id: authenticate
                 provider: user_provider
+                use_referer: true
 
             logout:
                 path: /logout

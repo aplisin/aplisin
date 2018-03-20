@@ -13,6 +13,14 @@ abstract class BaseRepository extends ServiceEntityRepository
 
     abstract protected function declares();
 
+    /**
+     * @param array $conditions
+     * @param array $orderBys
+     * @param $alias
+     * @param null $indexBy
+     * @return \Doctrine\ORM\Query
+     * @throws InvalidArgumentException
+     */
     public function getQueryBuilder(array $conditions, array $orderBys, $alias, $indexBy = null)
     {
         $this->conditions = $conditions;

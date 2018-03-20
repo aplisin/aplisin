@@ -49,12 +49,12 @@ class UserController extends BaseController
         /* @var $paginator Paginator */
         $users = $paginator->getIterator();
 
-        return $this->render('admin/user/index.html.twig', array(
+        return $this->render('admin/user/index.html.twig', [
             'form' => $form->createView(),
             'users' => $users,
             'paginator' => $paginator,
             'paginatorBag' => $paginatorBag
-        ));
+        ]);
     }
 
     /**

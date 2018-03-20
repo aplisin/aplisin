@@ -1,0 +1,21 @@
+{% macro paginator(paginator, paginatorBag, class) %}
+  {% if paginatorBag.lastPage|default() > 1 %}
+    <div class="cd-row-flex {{ class|default('cd-row-flex-center') }}">
+      <ul class="cd-pagination">
+        {% if paginatorBag.currentPage != paginatorBag.firstPage %}
+          <li><a href="{{ paginator.getPageUrl(paginatorBag.firstPage) }}"><i class="cd-icon cd-icon-first-page"></i></a></li>
+          <li><a href="{{ paginator.getPageUrl(paginatorBag.prevPage) }}"><i class="cd-icon cd-icon-arrow-left"></i></a></li>
+        {% endif %}
+
+        {% for page in paginatorBag.pages %}
+          <li class="{% if page == paginatorBag.currentPage %}active{% endif %}"><a href="{{ paginator.getPageUrl(page) }}">{{ page }}</a></li>
+        {% endfor %}
+
+        {% if paginatorBag.currentPage != paginatorBag.lastPage %}
+          <li><a href="{{ paginator.getPageUrl(paginatorBag.nextPage) }}"><i class="cd-icon cd-icon-arrow-right"></i></a></li>
+          <li><a href="{{ paginator.getPageUrl(paginatorBag.lastPage) }}"><i class="cd-icon cd-icon-last-page"></i></a></li>
+        {% endif %}
+      </ul>
+    </div>
+  {% endif %}
+{% endmacro %}
