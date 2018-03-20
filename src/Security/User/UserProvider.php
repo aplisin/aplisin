@@ -17,6 +17,11 @@ class UserProvider implements UserProviderInterface
         $this->container = $container;
     }
 
+    /**
+     * @param string $username
+     * @return CurrentUser|UserInterface
+     * @throws \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     */
     public function loadUserByUsername($username)
     {
         $currentUser = $this->getUserService()->getUserByUsername($username);
@@ -30,6 +35,11 @@ class UserProvider implements UserProviderInterface
         return new CurrentUser($currentUser);
     }
 
+    /**
+     * @param UserInterface $currentUser
+     * @return CurrentUser|UserInterface
+     * @throws \Symfony\Component\Security\Core\Exception\UnsupportedUserException
+     */
     public function refreshUser(UserInterface $currentUser)
     {
         if (!$currentUser instanceof CurrentUser) {

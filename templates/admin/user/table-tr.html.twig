@@ -3,6 +3,7 @@
   <td>{{ user.username }}</td>
   <td>{{ user.email }}</td>
   <td>{{ user.verifiedMobile|default('--') }}</td>
+  <td>{{ user.Roles|join(' ')|trans }}</td>
   <td>{{ user.createdAt|date('Y-n-d H:i:s') }}</td>
   <td>{{ user.updatedAt|date('Y-n-d H:i:s') }}</td>
   <td>
