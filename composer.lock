@@ -3631,16 +3631,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.0.71",
+            "version": "v1.0.73",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "51d7ddce85ca8b73a1fc16771f607b7d56692dbd"
+                "reference": "7e0b07aac08e746e42cf9dcb81d52f057796838c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/flex/51d7ddce85ca8b73a1fc16771f607b7d56692dbd.zip",
-                "reference": "51d7ddce85ca8b73a1fc16771f607b7d56692dbd",
+                "url": "https://files.phpcomposer.com/files/symfony/flex/7e0b07aac08e746e42cf9dcb81d52f057796838c.zip",
+                "reference": "7e0b07aac08e746e42cf9dcb81d52f057796838c",
                 "shasum": ""
             },
             "require": {
@@ -3673,7 +3673,7 @@
                     "email": "fabien.potencier@gmail.com"
                 }
             ],
-            "time": "2018-03-10T21:15:53+00:00"
+            "time": "2018-03-20T06:13:06+00:00"
         },
         {
             "name": "symfony/form",
@@ -6067,16 +6067,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.4.6",
+            "version": "v2.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "d2117ec118c1ff3d28ccddca8212d82787a4809f"
+                "reference": "69aacd44dbbaa3199d5afb68605c996d577896fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/twigphp/Twig/d2117ec118c1ff3d28ccddca8212d82787a4809f.zip",
-                "reference": "d2117ec118c1ff3d28ccddca8212d82787a4809f",
+                "url": "https://files.phpcomposer.com/files/twigphp/Twig/69aacd44dbbaa3199d5afb68605c996d577896fc.zip",
+                "reference": "69aacd44dbbaa3199d5afb68605c996d577896fc",
                 "shasum": ""
             },
             "require": {
@@ -6085,8 +6085,8 @@
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~3.3@dev"
+                "symfony/debug": "^2.7",
+                "symfony/phpunit-bridge": "^3.3"
             },
             "type": "library",
             "extra": {
@@ -6129,7 +6129,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2018-03-03T16:23:01+00:00"
+            "time": "2018-03-20T04:31:17+00:00"
         },
         {
             "name": "webmozart/assert",
