@@ -8,11 +8,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class CurrentUser implements AdvancedUserInterface, EquatableInterface
 {
-    private $user;
+    private $currentUser;
 
-    public function __construct(UserInterface $user)
+    public function __construct(UserInterface $currentUser)
     {
-        $this->user = $user;
+        $this->currentUser = $currentUser;
     }
 
     public function isAccountNonExpired()
@@ -35,21 +35,21 @@ class CurrentUser implements AdvancedUserInterface, EquatableInterface
         return true;
     }
 
-    public function isEqualTo(UserInterface $user)
+    public function isEqualTo(UserInterface $currentUser)
     {
-        if (!$user instanceof CurrentUser) {
+        if (!$currentUser instanceof CurrentUser) {
             return false;
         }
 
-        if ($this->getPassword() !== $user->getPassword()) {
+        if ($this->getPassword() !== $currentUser->getPassword()) {
             return false;
         }
 
-        if ($this->getSalt() !== $user->getSalt()) {
+        if ($this->getSalt() !== $currentUser->getSalt()) {
             return false;
         }
 
-        if ($this->getUsername() !== $user->getUsername()) {
+        if ($this->getUsername() !== $currentUser->getUsername()) {
             return false;
         }
 
@@ -58,22 +58,22 @@ class CurrentUser implements AdvancedUserInterface, EquatableInterface
 
     public function getRoles()
     {
-        return $this->user->getRoles();
+        return $this->currentUser->getRoles();
     }
 
     public function getPassword()
     {
-        return $this->user->getPassword();
+        return $this->currentUser->getPassword();
     }
 
     public function getSalt()
     {
-        return $this->user->getSalt();
+        return $this->currentUser->getSalt();
     }
 
     public function getUsername()
     {
-        return $this->user->getUsername();
+        return $this->currentUser->getUsername();
     }
 
     /**

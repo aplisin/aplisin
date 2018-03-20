@@ -110,16 +110,16 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
      * The *credentials* are the return value from getCredentials()
      *
      * @param mixed $credentials
-     * @param UserInterface $user
+     * @param UserInterface $currentUser
      *
      * @return bool
      *
      * @throws AuthenticationException
      */
-    public function checkCredentials($credentials, UserInterface $user)
+    public function checkCredentials($credentials, UserInterface $currentUser)
     {
         $password = $credentials['password'];
-        return $this->getPasswordEncoder()->isPasswordValid($user, $password);
+        return $this->getPasswordEncoder()->isPasswordValid($currentUser, $password);
     }
 
     protected function getDefaultSuccessRedirectUrl()

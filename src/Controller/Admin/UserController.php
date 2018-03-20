@@ -58,13 +58,13 @@ class UserController extends BaseController
     }
 
     /**
-     * @param User $user
-     * @Cache(lastModified="user.getUpdatedAt()", etag="'User' ~ user.getId() ~ user.getUpdatedAt().getTimestamp()")
+     * @param User $oneUser
+     * @Cache(lastModified="oneUser.getUpdatedAt()", etag="'User' ~ oneUser.getId() ~ oneUser.getUpdatedAt().getTimestamp()")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showAction(User $user)
+    public function showAction(User $oneUser)
     {
-        return $this->render('admin/user/show-modal.html.twig', compact('user'));
+        return $this->render('admin/user/show-modal.html.twig', ['user' => $oneUser]);
     }
 
     protected function getUserService()

@@ -19,26 +19,26 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
-        $user = $this->getUserService()->getUserByUsername($username);
+        $currentUser = $this->getUserService()->getUserByUsername($username);
 
-        if (!$user) {
+        if (!$currentUser) {
             throw new UsernameNotFoundException(
                 sprintf('Username "%s" does not exist.', $username)
             );
         }
 
-        return new CurrentUser($user);
+        return new CurrentUser($currentUser);
     }
 
-    public function refreshUser(UserInterface $user)
+    public function refreshUser(UserInterface $currentUser)
     {
-        if (!$user instanceof CurrentUser) {
+        if (!$currentUser instanceof CurrentUser) {
             throw new UnsupportedUserException(
-                sprintf('Instances of "%s" are not supported.', \get_class($user))
+                sprintf('Instances of "%s" are not supported.', \get_class($currentUser))
             );
         }
 
-        return $this->loadUserByUsername($user->getUsername());
+        return $this->loadUserByUsername($currentUser->getUsername());
     }
 
     public function supportsClass($class)
