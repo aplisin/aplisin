@@ -1,0 +1,14 @@
+{% extends 'admin/modal-layout.html.twig' %}
+
+{% block title %}{{ 'Personal details'|trans }}{% endblock %}
+
+{% block modal_body %}
+  {{ form_start(form, {'attr': {'class':'form-signin'}}) }}
+  {{ form_end(form) }}
+{% endblock %}
+
+{% block modal_footer %}
+  <button class="cd-btn cd-btn-primary cd-btn-lg" type="button" data-toggle="cd-modal-ok">
+    {{ 'close'|trans }}
+  </button>
+{% endblock %}

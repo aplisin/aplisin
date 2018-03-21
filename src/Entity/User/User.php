@@ -28,8 +28,8 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank()
-     * @Assert\Length(min="4", max="32")
      * @AppAssert\Username()
+     * @Assert\Length(min="4", max="32")
      */
     private $username;
 
