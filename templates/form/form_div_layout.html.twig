@@ -297,14 +297,6 @@
   {{- block('form_rows') -}}
 {%- endblock repeated_row -%}
 
-{%- block form_row -%}
-  <div>
-    {{- form_label(form) -}}
-    {{- form_errors(form) -}}
-    {{- form_widget(form) -}}
-  </div>
-{%- endblock form_row -%}
-
 {%- block button_row -%}
   <div>
     {{- form_widget(form) -}}

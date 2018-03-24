@@ -164,13 +164,16 @@
 
 {% block form_row -%}
   {%- if compound is defined and compound -%}
-    {%- set element = 'fieldset' -%}
+    {{- form_label(form) -}}
+    {{- form_widget(form) -}}
+    {{- form_errors(form) -}}
+  {%- else -%}
+    <div class="cd-form-group {{ form_class|default() }}">
+      {{- form_label(form) -}}
+      {{- form_widget(form) -}}
+      {{- form_errors(form) -}}
+    </div>
   {%- endif -%}
-  <{{ element|default('div') }} class="cd-form-group {{ form_class|default() }}">
-  {{- form_label(form) -}}
-  {{- form_widget(form) -}}
-  {{- form_errors(form) -}}
-  </{{ element|default('div') }}>
 {%- endblock form_row %}
 
 {# Errors #}

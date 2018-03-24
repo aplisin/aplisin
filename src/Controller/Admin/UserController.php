@@ -4,11 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Controller\BaseController;
 use App\Entity\User\User;
+use App\Form\User\EditUserType;
 use App\Form\User\SearchUserType;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class UserController
@@ -65,6 +67,22 @@ class UserController extends BaseController
     public function showAction(User $oneUser)
     {
         return $this->render('admin/user/show-modal.html.twig', ['user' => $oneUser]);
+    }
+
+    /**
+     * @param Request $request
+     * @param User $oneUser
+     * @return Response
+     */
+    public function editAction(Request $request, User $oneUser)
+    {
+        $form = $this->createForm(EditUserType::class, $oneUser);
+
+        $form->handleRequest($request);
+        return $this->render('admin/user/edit-modal.html.twig', [
+            'user' => $oneUser,
+            'form' => $form->createView()
+        ]);
     }
 
     protected function getUserService()
