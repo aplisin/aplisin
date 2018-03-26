@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2061c10aac95db9a91f5600b3617d488",
+    "content-hash": "03b42995dee10d504c6bbd98fc30cfed",
     "packages": [
         {
             "name": "api-platform/core",
@@ -3631,16 +3631,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.0.75",
+            "version": "v1.0.76",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "3da0134564f59ffbd060db8f3406e9f3e78df64e"
+                "reference": "202c981673b255a41bac4076cb82629a0b8481cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/flex/3da0134564f59ffbd060db8f3406e9f3e78df64e.zip",
-                "reference": "3da0134564f59ffbd060db8f3406e9f3e78df64e",
+                "url": "https://files.phpcomposer.com/files/symfony/flex/202c981673b255a41bac4076cb82629a0b8481cb.zip",
+                "reference": "202c981673b255a41bac4076cb82629a0b8481cb",
                 "shasum": ""
             },
             "require": {
@@ -3673,7 +3673,7 @@
                     "email": "fabien.potencier@gmail.com"
                 }
             ],
-            "time": "2018-03-20T07:32:02+00:00"
+            "time": "2018-03-23T16:30:50+00:00"
         },
         {
             "name": "symfony/form",
@@ -6462,16 +6462,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.0.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "9c18e3db49fa469f5feffe40dbd7b1ec2b61e41f"
+                "reference": "e4a54fa90a5cd8e8dd3fb4099942681731c5cdd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/nikic/PHP-Parser/9c18e3db49fa469f5feffe40dbd7b1ec2b61e41f.zip",
-                "reference": "9c18e3db49fa469f5feffe40dbd7b1ec2b61e41f",
+                "url": "https://files.phpcomposer.com/files/nikic/PHP-Parser/e4a54fa90a5cd8e8dd3fb4099942681731c5cdd3.zip",
+                "reference": "e4a54fa90a5cd8e8dd3fb4099942681731c5cdd3",
                 "shasum": ""
             },
             "require": {
@@ -6509,7 +6509,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-02-28T20:39:30+00:00"
+            "time": "2018-03-25T17:35:16+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -6736,16 +6736,16 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "60df153a907b187cc3fd050dd6de7746ddc833b7"
+                "reference": "c936864823ac60508e37d8fb1d9bc6a02d03ffa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/maker-bundle/60df153a907b187cc3fd050dd6de7746ddc833b7.zip",
-                "reference": "60df153a907b187cc3fd050dd6de7746ddc833b7",
+                "url": "https://files.phpcomposer.com/files/symfony/maker-bundle/c936864823ac60508e37d8fb1d9bc6a02d03ffa7.zip",
+                "reference": "c936864823ac60508e37d8fb1d9bc6a02d03ffa7",
                 "shasum": ""
             },
             "require": {
@@ -6797,7 +6797,7 @@
                 "scaffold",
                 "scaffolding"
             ],
-            "time": "2018-03-17T19:51:02+00:00"
+            "time": "2018-03-21T13:40:46+00:00"
         },
         {
             "name": "symfony/webpack-encore-pack",
@@ -6834,7 +6834,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.0.8",
+        "php": "^7.1",
         "ext-iconv": "*"
     },
     "platform-dev": []

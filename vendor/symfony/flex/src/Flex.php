@@ -14,7 +14,6 @@ namespace Symfony\Flex;
 use Composer\Composer;
 use Composer\Console\Application;
 use Composer\DependencyResolver\Operation\InstallOperation;
-use Composer\DependencyResolver\Operation\OperationInterface;
 use Composer\DependencyResolver\Operation\UpdateOperation;
 use Composer\DependencyResolver\Operation\UninstallOperation;
 use Composer\DependencyResolver\Pool;
@@ -60,6 +59,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
     private $cacheDirPopulated = false;
     private $displayThanksReminder = 0;
     private $rfs;
+    private $progress = true;
     private static $activated = true;
     private static $repoReadingCommands = [
         'create-project' => true,
@@ -103,7 +103,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
         $this->configurator = new Configurator($composer, $io, $this->options);
         $this->downloader = new Downloader($composer, $io, $this->rfs);
         $this->downloader->setFlexId($this->getFlexId());
-        $this->lock = new Lock(getenv("SYMFONY_LOCKFILE") ?: str_replace('composer.json', 'symfony.lock', Factory::getComposerFile()));
+        $this->lock = new Lock(getenv('SYMFONY_LOCKFILE') ?: str_replace('composer.json', 'symfony.lock', Factory::getComposerFile()));
 
         $populateRepoCacheDir = __CLASS__ === self::class;
         if ($composer->getPluginManager()) {
@@ -171,6 +171,10 @@ class Flex implements PluginInterface, EventSubscriberInterface
                 }
             }
 
+            if ($input->hasOption('no-progress')) {
+                $this->progress = !$input->getOption('no-progress');
+            }
+
             $composerFile = Factory::getComposerFile();
             if ($populateRepoCacheDir && isset(self::$repoReadingCommands[$command]) && ('install' !== $command || (file_exists($composerFile) && !file_exists(substr($composerFile, 0, -4).'lock')))) {
                 $this->populateRepoCacheDir();
@@ -180,6 +184,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
             $app->add(new Command\UpdateCommand($resolver));
             $app->add(new Command\RemoveCommand($resolver));
             $app->add(new Command\UnpackCommand($resolver));
+            $app->add(new Command\InstallRecipesCommand($this));
 
             break;
         }
@@ -230,8 +235,12 @@ class Flex implements PluginInterface, EventSubscriberInterface
         $this->update($event);
     }
 
-    public function update(Event $event)
+    public function update(Event $event, $operations = [])
     {
+        if ($operations) {
+            $this->operations = $operations;
+        }
+
         if (!file_exists(getcwd().'/.env') && file_exists(getcwd().'/.env.dist')) {
             copy(getcwd().'/.env.dist', getcwd().'/.env');
         }
@@ -475,7 +484,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
         }
 
         if (1 < count($downloads)) {
-            $this->rfs->download($downloads, [$this->rfs, 'get'], false);
+            $this->rfs->download($downloads, [$this->rfs, 'get'], false, $this->progress);
         }
     }
 

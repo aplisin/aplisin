@@ -277,7 +277,7 @@ optional_finally:
 ;
 
 variables_list:
-      non_empty_variables_list no_comma                     { $$ = $1; }
+      non_empty_variables_list optional_comma               { $$ = $1; }
 ;
 
 non_empty_variables_list:
@@ -472,7 +472,7 @@ optional_return_type:
 
 argument_list:
       '(' ')'                                               { $$ = array(); }
-    | '(' non_empty_argument_list no_comma ')'              { $$ = $2; }
+    | '(' non_empty_argument_list optional_comma ')'        { $$ = $2; }
 ;
 
 non_empty_argument_list:
@@ -929,8 +929,10 @@ list_expr_elements:
 
 list_expr_element:
       variable                                              { $$ = Expr\ArrayItem[$1, null, false]; }
+    | '&' variable                                          { $$ = Expr\ArrayItem[$2, null, true]; }
     | list_expr                                             { $$ = Expr\ArrayItem[$1, null, false]; }
     | expr T_DOUBLE_ARROW variable                          { $$ = Expr\ArrayItem[$3, $1, false]; }
+    | expr T_DOUBLE_ARROW '&' variable                      { $$ = Expr\ArrayItem[$4, $1, true]; }
     | expr T_DOUBLE_ARROW list_expr                         { $$ = Expr\ArrayItem[$3, $1, false]; }
     | /* empty */                                           { $$ = null; }
 ;

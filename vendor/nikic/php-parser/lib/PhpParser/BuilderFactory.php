@@ -5,7 +5,10 @@ namespace PhpParser;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Concat;
+use PhpParser\Node\Identifier;
+use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Use_;
 
 class BuilderFactory
@@ -142,6 +145,96 @@ class BuilderFactory
     }
 
     /**
+     * Creates a function call node.
+     *
+     * @param string|Name|Expr $name Function name
+     * @param array            $args Function arguments
+     *
+     * @return Expr\FuncCall
+     */
+    public function funcCall($name, array $args = []) : Expr\FuncCall {
+        return new Expr\FuncCall(
+            BuilderHelpers::normalizeNameOrExpr($name),
+            $this->args($args)
+        );
+    }
+
+    /**
+     * Creates a method call node.
+     *
+     * @param Expr                   $var  Variable the method is called on
+     * @param string|Identifier|Expr $name Method name
+     * @param array                  $args Method arguments
+     *
+     * @return Expr\MethodCall
+     */
+    public function methodCall(Expr $var, $name, array $args = []) : Expr\MethodCall {
+        return new Expr\MethodCall(
+            $var,
+            BuilderHelpers::normalizeIdentifierOrExpr($name),
+            $this->args($args)
+        );
+    }
+
+    /**
+     * Creates a static method call node.
+     *
+     * @param string|Name|Expr       $class Class name
+     * @param string|Identifier|Expr $name  Method name
+     * @param array                  $args  Method arguments
+     *
+     * @return Expr\StaticCall
+     */
+    public function staticCall($class, $name, array $args = []) : Expr\StaticCall {
+        return new Expr\StaticCall(
+            BuilderHelpers::normalizeNameOrExpr($class),
+            BuilderHelpers::normalizeIdentifierOrExpr($name),
+            $this->args($args)
+        );
+    }
+
+    /**
+     * Creates an object creation node.
+     *
+     * @param string|Name|Expr $class Class name
+     * @param array            $args  Constructor arguments
+     *
+     * @return Expr\New_
+     */
+    public function new($class, array $args = []) : Expr\New_ {
+        return new Expr\New_(
+            BuilderHelpers::normalizeNameOrExpr($class),
+            $this->args($args)
+        );
+    }
+
+    /**
+     * Creates a constant fetch node.
+     *
+     * @param string|Name $name Constant name
+     *
+     * @return Expr\ConstFetch
+     */
+    public function constFetch($name) : Expr\ConstFetch {
+        return new Expr\ConstFetch(BuilderHelpers::normalizeName($name));
+    }
+
+    /**
+     * Creates a class constant fetch node.
+     *
+     * @param string|Name|Expr  $class Class name
+     * @param string|Identifier $name  Constant name
+     *
+     * @return Expr\ClassConstFetch
+     */
+    public function classConstFetch($class, $name): Expr\ClassConstFetch {
+        return new Expr\ClassConstFetch(
+            BuilderHelpers::normalizeNameOrExpr($class),
+            BuilderHelpers::normalizeIdentifier($name)
+        );
+    }
+
+    /**
      * Creates nested Concat nodes from a list of expressions.
      *
      * @param Expr|string ...$exprs Expressions or literal strings
@@ -161,12 +254,16 @@ class BuilderFactory
         return $lastConcat;
     }
 
-    private function normalizeStringExpr($expr) {
+    /**
+     * @param string|Expr $expr
+     * @return Expr
+     */
+    private function normalizeStringExpr($expr) : Expr {
         if ($expr instanceof Expr) {
             return $expr;
         }
 
-        if (is_string($expr)) {
+        if (\is_string($expr)) {
             return new String_($expr);
         }
 
