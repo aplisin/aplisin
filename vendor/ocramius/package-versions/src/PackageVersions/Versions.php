@@ -43,7 +43,7 @@ final class Versions
   'ocramius/package-versions' => '1.3.0@4489d5002c49d55576fa0ba786f42dbb009be46f',
   'ocramius/proxy-manager' => '2.2.0@81d53b2878f1d1c40ad27270e64b51798485dfc5',
   'overtrue/socialite' => '2.0.2@4a8677a9afed57654f1aa55eff2a2de5bbd8e1bc',
-  'overtrue/wechat' => '4.0.20@74fc274357833d9df5b2a5e9c149bd638f597dea',
+  'overtrue/wechat' => '4.0.21@372b2b21931ab5286c13615a801b3683584230b4',
   'phpdocumentor/reflection-common' => '1.0.1@21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6',
   'phpdocumentor/reflection-docblock' => '4.3.0@94fd0001232e47129dd3504189fa1c7225010d08',
   'phpdocumentor/type-resolver' => '0.4.0@9c977708995954784726e25d0cd1dddf4e65b0f7',
@@ -122,10 +122,10 @@ final class Versions
   'symfony/dotenv' => 'v3.4.6@66265f80c0f585cd6aec3fbdfc4ffdf7a0d75992',
   'symfony/maker-bundle' => 'v1.3.1@c936864823ac60508e37d8fb1d9bc6a02d03ffa7',
   'symfony/webpack-encore-pack' => 'v1.0.2@f9f4e91659e5f55de370d6aebe77e64bce35e4d3',
-  'symfony/polyfill-iconv' => '*@73100508c3aecaf20b3f11e956a52c9bfb8705a3',
-  'symfony/polyfill-php70' => '*@73100508c3aecaf20b3f11e956a52c9bfb8705a3',
-  'symfony/polyfill-php56' => '*@73100508c3aecaf20b3f11e956a52c9bfb8705a3',
-  '__root__' => 'dev-develop@73100508c3aecaf20b3f11e956a52c9bfb8705a3',
+  'symfony/polyfill-iconv' => '*@a9be79b3a5b46dbc540693b39aee30255c730ada',
+  'symfony/polyfill-php70' => '*@a9be79b3a5b46dbc540693b39aee30255c730ada',
+  'symfony/polyfill-php56' => '*@a9be79b3a5b46dbc540693b39aee30255c730ada',
+  '__root__' => 'dev-develop@a9be79b3a5b46dbc540693b39aee30255c730ada',
 );
 
     private function __construct()
