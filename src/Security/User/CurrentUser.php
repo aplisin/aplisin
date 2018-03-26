@@ -31,20 +31,20 @@ class CurrentUser implements AdvancedUserInterface, EquatableInterface
 
     /**
      * CurrentUser constructor.
-     * @param User $currentUser
+     * @param User $user
      */
-    public function __construct(User $currentUser)
+    public function __construct(User $user)
     {
-        $this->id = $currentUser->getId();
-        $this->username = $currentUser->getUsername();
-        $this->email = $currentUser->getEmail();
-        $this->verifiedMobile = $currentUser->getVerifiedMobile();
-        $this->password = $currentUser->getPassword();
-        $this->roles = $currentUser->getRoles();
-        $this->isActive = $currentUser->getIsActive();
-        $this->createdAt = $currentUser->getCreatedAt();
-        $this->updatedAt = $currentUser->getUpdatedAt();
-        $this->userProfile = $currentUser->getUserProfile();
+        $this->id = $user->getId();
+        $this->username = $user->getUsername();
+        $this->email = $user->getEmail();
+        $this->verifiedMobile = $user->getVerifiedMobile();
+        $this->password = $user->getPassword();
+        $this->roles = $user->getRoles();
+        $this->isActive = $user->getIsActive();
+        $this->createdAt = $user->getCreatedAt();
+        $this->updatedAt = $user->getUpdatedAt();
+        $this->userProfile = $user->getUserProfile();
     }
 
     public function getId()
@@ -125,6 +125,11 @@ class CurrentUser implements AdvancedUserInterface, EquatableInterface
     public function isEnabled()
     {
         return $this->isActive;
+    }
+
+    public function isLogin()
+    {
+        return empty($this->id) ? false : true;
     }
 
     public function isEqualTo(UserInterface $user)

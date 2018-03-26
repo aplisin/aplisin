@@ -31,7 +31,7 @@ Encore
   // uncomment if you use Sass/SCSS files
   // .enableSassLoader()
 
-// uncomment if you use PostCss files
+  // uncomment if you use PostCss files
   .enablePostCssLoader((options) => {
     options.config = {
       path: 'config/postcss.config.js'

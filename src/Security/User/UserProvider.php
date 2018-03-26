@@ -24,15 +24,15 @@ class UserProvider implements UserProviderInterface
      */
     public function loadUserByUsername($username)
     {
-        $currentUser = $this->getUserService()->getUserByUsername($username);
+        $user = $this->getUserService()->getUserByUsername($username);
 
-        if (!$currentUser) {
+        if (!$user) {
             throw new UsernameNotFoundException(
                 sprintf('Username "%s" does not exist.', $username)
             );
         }
 
-        return new CurrentUser($currentUser);
+        return new CurrentUser($user);
     }
 
     /**

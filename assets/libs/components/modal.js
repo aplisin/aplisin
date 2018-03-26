@@ -14,7 +14,7 @@ class Modal {
         el: '#cd-modal',
         ajax: !isEmpty(url),
         url: url,
-        maskClosable: true,
+        maskClosable: $(e.target).data('static') === false ? $(e.target).data('static') : true,
       }).on('ok', ($modal, modal) => {
         modal.trigger('close');
       });

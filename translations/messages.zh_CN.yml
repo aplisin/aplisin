@@ -28,3 +28,5 @@ close: 关闭
 ROLE_USER: 用户
 ROLE_ADMIN: 管理员
 ROLE_SUPER_ADMIN: 超级管理员
+'Edit Personal details': 编辑个人资料
+save: 保存

@@ -1,6 +1,6 @@
 <tr>
   <td>{{ loop.index }}</td>
-  <td><a href="#modal" class="cd-link-primary" data-toggle="modal" data-url="{{ path('admin_user_show', {id: user.id}) }}">{{ user.username }}</a></td>
+  <td><a href="#modal" class="cd-link-primary js-modal" data-toggle="modal" data-url="{{ path('admin_user_show', {id: user.id}) }}">{{ user.username }}</a></td>
   <td>{{ user.email }}</td>
   <td>{{ user.verifiedMobile|default('--') }}</td>
   <td>{{ user.Roles|join(' ')|trans }}</td>
@@ -14,7 +14,7 @@
       </a>
       <ul class="dropdown-menu">
         <li>
-          <a href="#modal" class="cd-link-primary cd-mr8" data-toggle="modal" data-url="{{ path('admin_user_edit', {id: user.id}) }}">{{ 'Edit Personal details'|trans }}</a>
+          <a href="#modal" class="cd-link-primary cd-mr8" data-toggle="modal" data-static="false" data-url="{{ path('admin_user_edit', {id: user.id}) }}">{{ 'Edit Personal details'|trans }}</a>
         </li>
         <li>
           <a href="javascript:;">下拉菜单项二</a>
