@@ -2240,17 +2240,17 @@
     },
     {
         "name": "overtrue/socialite",
-        "version": "2.0.2",
-        "version_normalized": "2.0.2.0",
+        "version": "2.0.3",
+        "version_normalized": "2.0.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/overtrue/socialite.git",
-            "reference": "4a8677a9afed57654f1aa55eff2a2de5bbd8e1bc"
+            "reference": "20bc0ac598aa41365c209bbe4cb5c0cf314d46b3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/overtrue/socialite/4a8677a9afed57654f1aa55eff2a2de5bbd8e1bc.zip",
-            "reference": "4a8677a9afed57654f1aa55eff2a2de5bbd8e1bc",
+            "url": "https://files.phpcomposer.com/files/overtrue/socialite/20bc0ac598aa41365c209bbe4cb5c0cf314d46b3.zip",
+            "reference": "20bc0ac598aa41365c209bbe4cb5c0cf314d46b3",
             "shasum": ""
         },
         "require": {
@@ -2262,7 +2262,7 @@
             "mockery/mockery": "~0.9",
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2018-02-17T12:40:26+00:00",
+        "time": "2018-03-28T02:22:49+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -4149,17 +4149,17 @@
     },
     {
         "name": "symfony/flex",
-        "version": "v1.0.76",
-        "version_normalized": "1.0.76.0",
+        "version": "v1.0.78",
+        "version_normalized": "1.0.78.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/flex.git",
-            "reference": "202c981673b255a41bac4076cb82629a0b8481cb"
+            "reference": "eead30b31db70691cd1fd1e7225190c818a1a5f6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/flex/202c981673b255a41bac4076cb82629a0b8481cb.zip",
-            "reference": "202c981673b255a41bac4076cb82629a0b8481cb",
+            "url": "https://files.phpcomposer.com/files/symfony/flex/eead30b31db70691cd1fd1e7225190c818a1a5f6.zip",
+            "reference": "eead30b31db70691cd1fd1e7225190c818a1a5f6",
             "shasum": ""
         },
         "require": {
@@ -4170,7 +4170,7 @@
             "composer/composer": "^1.0.2",
             "symfony/phpunit-bridge": "^3.2.8"
         },
-        "time": "2018-03-23T16:30:50+00:00",
+        "time": "2018-03-27T10:04:58+00:00",
         "type": "composer-plugin",
         "extra": {
             "branch-alias": {
