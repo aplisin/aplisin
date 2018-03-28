@@ -8,7 +8,10 @@
 {% endblock %}
 
 {% block modal_footer %}
-  <button class="cd-btn cd-btn-primary cd-btn-lg" type="button" data-toggle="cd-modal-ok">
+  <button class="cd-btn cd-btn-link-default cd-btn-lg" type="button" data-toggle="cd-modal-cancel">
+    {{ 'cancel'|trans }}
+  </button>
+  <button class="cd-btn cd-btn-primary cd-btn-lg js-personal-details-save-btn" type="button" data-toggle="cd-modal-ok">
     {{ 'save'|trans }}
   </button>
 {% endblock %}

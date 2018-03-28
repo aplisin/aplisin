@@ -25,8 +25,9 @@ close: 关闭
 'Register Time': 注册时间
 'Full Name': 姓名
 'Not Available': 暂无
-ROLE_USER: 用户
+ROLE_USER: 普通用户
 ROLE_ADMIN: 管理员
 ROLE_SUPER_ADMIN: 超级管理员
 'Edit Personal details': 编辑个人资料
 save: 保存
+cancel: 取消
