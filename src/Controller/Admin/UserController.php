@@ -22,8 +22,9 @@ class UserController extends BaseController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\DBAL\Exception\InvalidArgumentException
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request): Response
     {
         $form = $this->createForm(
             SearchUserType::class,
@@ -43,7 +44,7 @@ class UserController extends BaseController
         $conditions = array_merge($conditions, $fields);
         $orderBys = array('createdAt' => 'DESC');
         $query = $this->getUserService()->getQueryBuilder($conditions, $orderBys);
-        list($paginator, $paginatorBag) = $this->paginate(
+        [$paginator, $paginatorBag] = $this->paginate(
             $request,
             $query
         );
@@ -64,7 +65,7 @@ class UserController extends BaseController
      * @Cache(lastModified="oneUser.getUpdatedAt()", etag="'User' ~ oneUser.getId() ~ oneUser.getUpdatedAt().getTimestamp()")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showAction(User $oneUser)
+    public function showAction(User $oneUser): Response
     {
         return $this->render('admin/user/show-modal.html.twig', ['user' => $oneUser]);
     }
@@ -74,7 +75,7 @@ class UserController extends BaseController
      * @param User $oneUser
      * @return Response
      */
-    public function editAction(Request $request, User $oneUser)
+    public function editAction(Request $request, User $oneUser): Response
     {
         $form = $this->createForm(EditUserType::class, $oneUser);
 
@@ -82,6 +83,24 @@ class UserController extends BaseController
         return $this->render('admin/user/edit-modal.html.twig', [
             'user' => $oneUser,
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param User $oneUser
+     * @return Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function lockAction(Request $request, User $oneUser): Response
+    {
+        if ($request->isMethod('POST')) {
+            $this->getUserService()->lockUser($oneUser);
+        }
+
+        return $this->render('admin/user/table-tr.html.twig', [
+            'user' => $oneUser
         ]);
     }
 

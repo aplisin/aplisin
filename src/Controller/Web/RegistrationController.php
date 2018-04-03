@@ -7,6 +7,7 @@ use App\Entity\User\User;
 use App\Form\User\RegistrationUserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class RegistrationController
@@ -15,7 +16,14 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class RegistrationController extends BaseController
 {
-    public function registerAction(Request $request)
+    /**
+     * @param Request $request
+     * @return null|Response
+     * @throws \Doctrine\ORM\ORMInvalidArgumentException
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function registerAction(Request $request): ?Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationUserType::class, $user);

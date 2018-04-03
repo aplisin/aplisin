@@ -57,12 +57,17 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(type="simple_array", length=255, nullable=true)
      */
-    private $roles;
+    private $roles = ['ROLE_USER'];
 
     /**
      * @ORM\Column(name="is_active", type="boolean", nullable=true, options={"default":true})
      */
-    private $isActive;
+    private $isActive = true;
+
+    /**
+     * @ORM\Column(name="is_locked", type="boolean", nullable=true, options={"default":false})
+     */
+    private $isLocked = false;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
@@ -102,7 +107,7 @@ class User implements AdvancedUserInterface
      * @param mixed $username
      * @return User
      */
-    public function setUsername($username)
+    public function setUsername($username): User
     {
         $this->username = $username;
         return $this;
@@ -120,7 +125,7 @@ class User implements AdvancedUserInterface
      * @param mixed $email
      * @return User
      */
-    public function setEmail($email)
+    public function setEmail($email): User
     {
         $this->email = $email;
         return $this;
@@ -136,10 +141,12 @@ class User implements AdvancedUserInterface
 
     /**
      * @param mixed $verifiedMobile
+     * @return User
      */
-    public function setVerifiedMobile($verifiedMobile)
+    public function setVerifiedMobile($verifiedMobile): User
     {
         $this->verifiedMobile = $verifiedMobile;
+        return $this;
     }
 
     /**
@@ -154,7 +161,7 @@ class User implements AdvancedUserInterface
      * @param mixed $password
      * @return User
      */
-    public function setPassword($password)
+    public function setPassword($password): User
     {
         $this->password = $password;
         return $this;
@@ -184,7 +191,7 @@ class User implements AdvancedUserInterface
      * @param mixed $roles
      * @return User
      */
-    public function setRoles($roles)
+    public function setRoles($roles): User
     {
         $this->roles = $roles;
         return $this;
@@ -202,9 +209,27 @@ class User implements AdvancedUserInterface
      * @param mixed $isActive
      * @return User
      */
-    public function setIsActive($isActive)
+    public function setIsActive($isActive): User
     {
         $this->isActive = $isActive;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsLocked()
+    {
+        return $this->isLocked;
+    }
+
+    /**
+     * @param mixed $isLocked
+     * @return User
+     */
+    public function setIsLocked($isLocked): User
+    {
+        $this->isLocked = $isLocked;
         return $this;
     }
 
@@ -220,7 +245,7 @@ class User implements AdvancedUserInterface
      * @param mixed $createdAt
      * @return User
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt($createdAt): User
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -238,7 +263,7 @@ class User implements AdvancedUserInterface
      * @param mixed $updatedAt
      * @return User
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt): User
     {
         $this->updatedAt = $updatedAt;
         return $this;
@@ -254,10 +279,12 @@ class User implements AdvancedUserInterface
 
     /**
      * @param mixed $userProfile
+     * @return User
      */
-    public function setUserProfile($userProfile)
+    public function setUserProfile($userProfile): User
     {
         $this->userProfile = $userProfile;
+        return $this;
     }
 
     public function eraseCredentials()
@@ -272,7 +299,7 @@ class User implements AdvancedUserInterface
 
     public function isAccountNonLocked()
     {
-        return true;
+        return !$this->isLocked;
     }
 
     public function isCredentialsNonExpired()

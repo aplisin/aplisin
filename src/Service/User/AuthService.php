@@ -21,39 +21,14 @@ class AuthService extends BaseService
         $user->setPassword($password);
 
         $userProfile = new UserProfile();
-        $userProfile = $this->filterProfileFields($userProfile);
 
         $user->setUserProfile($userProfile);
-        $user = $this->filterUserFields($user);
 
-        $em = $this->getEntityManager();
-        $em->persist($user);
-        $em->persist($userProfile);
-        $em->flush();
+        $this->getEntityManager()->persist($user);
+        $this->getEntityManager()->persist($userProfile);
+        $this->getEntityManager()->flush();
 
         return $user;
-    }
-
-    /**
-     * @param $user User
-     * @return mixed
-     */
-    private function filterUserFields($user)
-    {
-        if ($user->getRoles() === null) {
-            $user->setRoles(['ROLE_USER']);
-        }
-
-        return $user;
-    }
-
-    /**
-     * @param $userProfile UserProfile
-     * @return mixed
-     */
-    private function filterProfileFields($userProfile)
-    {
-        return $userProfile;
     }
 
     protected function getPasswordEncoder()

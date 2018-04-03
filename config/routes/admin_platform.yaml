@@ -7,17 +7,23 @@ admin:
     defaults: { _controller: 'App\Controller\Admin\DefaultController::indexAction' }
 
 admin_user:
-    path:  /admin/user
+    path: /admin/user
     defaults: { _controller: 'App\Controller\Admin\UserController::indexAction' }
 
 admin_user_show:
-    path:  /admin/user/{id}
+    path: /admin/user/{id}
     defaults: { _controller: 'App\Controller\Admin\UserController::showAction' }
     requirements:
         id: \d+
 
 admin_user_edit:
-    path:  /admin/user/{id}/edit
+    path: /admin/user/{id}/edit
     defaults: { _controller: 'App\Controller\Admin\UserController::editAction' }
+    requirements:
+        id: \d+
+
+admin_user_lock:
+    path: /admin/user/{id}/lock
+    defaults: { _controller: 'App\Controller\Admin\UserController::lockAction' }
     requirements:
         id: \d+

@@ -86,7 +86,7 @@ abstract class BaseRepository extends ServiceEntityRepository
      * @param $allowOrderBys
      * @throws InvalidArgumentException
      */
-    protected function checkOrderBy($order, $sort, $allowOrderBys)
+    protected function checkOrderBy($order, $sort, $allowOrderBys): void
     {
         if (!\in_array($order, $allowOrderBys, true)) {
             throw new InvalidArgumentException(sprintf("SQL order by field is only allowed '%s', but you give `{$order}`.", implode(',', $allowOrderBys)));
