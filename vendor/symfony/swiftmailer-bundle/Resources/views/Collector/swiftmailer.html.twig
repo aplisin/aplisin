@@ -190,10 +190,10 @@
                         <div class="row">
                             <div class="col col-4">
                                 <span class="label">From</span>
-                                <pre class="prewrap">{{ message.headers.get('from').toString|replace({'From:': ''}) }}</pre>
+                                <pre class="prewrap">{{ (message.headers.get('from').toString ?? '(empty)')|replace({'From:': ''}) }}</pre>
 
                                 <span class="label">To</span>
-                                <pre class="prewrap">{{ message.headers.get('to').toString|replace({'To:': ''}) }}</pre>
+                                <pre class="prewrap">{{ (message.headers.get('to').toString ?? '(empty)')|replace({'To:': ''}) }}</pre>
                             </div>
                             <div class="col">
                                 <span class="label">Headers</span>
@@ -224,7 +224,7 @@
                                 <h3 class="tab-title">Rendered content</h3>
 
                                 <div class="tab-content">
-                                    <iframe class="full-width" style="min-height: 600px" src="data:text/html;base64,{{ message.__base64EncodedBody }}"></iframe>
+                                    <iframe class="full-width" style="min-height: 600px" src="data:{{ message.__contentType }};base64,{{ message.__base64EncodedBody }}"></iframe>
                                 </div>
                             </div>
                         </div>

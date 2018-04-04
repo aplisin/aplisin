@@ -27,11 +27,11 @@ Feature: GraphQL mutation support
     And the response should be in JSON
     And the header "Content-Type" should be equal to "application/json"
     And the JSON node "data.__type.fields[0].name" should contain "delete"
-    And the JSON node "data.__type.fields[0].description" should match '/^Deletes a [A-z]+\.$/'
-    And the JSON node "data.__type.fields[0].type.name" should match "/^delete[A-z]+Payload$/"
+    And the JSON node "data.__type.fields[0].description" should match '/^Deletes a [A-z0-9]+\.$/'
+    And the JSON node "data.__type.fields[0].type.name" should match "/^delete[A-z0-9]+Payload$/"
     And the JSON node "data.__type.fields[0].type.kind" should be equal to "OBJECT"
     And the JSON node "data.__type.fields[0].args[0].name" should be equal to "input"
-    And the JSON node "data.__type.fields[0].args[0].type.name" should match "/^delete[A-z]+Input$/"
+    And the JSON node "data.__type.fields[0].args[0].type.name" should match "/^delete[A-z0-9]+Input$/"
     And the JSON node "data.__type.fields[0].args[0].type.kind" should be equal to "INPUT_OBJECT"
 
   Scenario: Create an item
@@ -106,7 +106,6 @@ Feature: GraphQL mutation support
     And the JSON node "data.createDummy.arrayData[1]" should be equal to baz
     And the JSON node "data.createDummy.clientMutationId" should be equal to "myId"
 
-  @dropSchema
   Scenario: Delete an item through a mutation
     When I send the following GraphQL request:
     """
@@ -123,7 +122,6 @@ Feature: GraphQL mutation support
     And the JSON node "data.deleteFoo.id" should be equal to "/foos/1"
     And the JSON node "data.deleteFoo.clientMutationId" should be equal to "anotherId"
 
-  @createSchema
   @dropSchema
   Scenario: Delete an item with composite identifiers through a mutation
     Given there are Composite identifier objects
@@ -143,16 +141,16 @@ Feature: GraphQL mutation support
     And the JSON node "data.deleteCompositeRelation.clientMutationId" should be equal to "myId"
 
   @createSchema
-  @dropSchema
   Scenario: Modify an item through a mutation
-    Given there are 1 foo objects with fake names
+    Given there are 1 dummy objects
     When I send the following GraphQL request:
     """
     mutation {
-      updateFoo(input: {id: "/foos/1", bar: "Modified description.", clientMutationId: "myId"}) {
+      updateDummy(input: {id: "/dummies/1", description: "Modified description.", dummyDate: "2018-06-05", clientMutationId: "myId"}) {
         id
         name
-        bar
+        description
+        dummyDate
         clientMutationId
       }
     }
@@ -160,12 +158,12 @@ Feature: GraphQL mutation support
     Then the response status code should be 200
     And the response should be in JSON
     And the header "Content-Type" should be equal to "application/json"
-    And the JSON node "data.updateFoo.id" should be equal to "/foos/1"
-    And the JSON node "data.updateFoo.name" should be equal to "Hawsepipe"
-    And the JSON node "data.updateFoo.bar" should be equal to "Modified description."
-    And the JSON node "data.updateFoo.clientMutationId" should be equal to "myId"
+    And the JSON node "data.updateDummy.id" should be equal to "/dummies/1"
+    And the JSON node "data.updateDummy.name" should be equal to "Dummy #1"
+    And the JSON node "data.updateDummy.description" should be equal to "Modified description."
+    And the JSON node "data.updateDummy.dummyDate" should be equal to "2018-06-05T00:00:00+00:00"
+    And the JSON node "data.updateDummy.clientMutationId" should be equal to "myId"
 
-  @createSchema
   Scenario: Modify an item with composite identifiers through a mutation
     Given there are Composite identifier objects
     When I send the following GraphQL request:
@@ -184,6 +182,44 @@ Feature: GraphQL mutation support
     And the JSON node "data.updateCompositeRelation.id" should be equal to "/composite_relations/compositeItem=1;compositeLabel=2"
     And the JSON node "data.updateCompositeRelation.value" should be equal to "Modified value."
     And the JSON node "data.updateCompositeRelation.clientMutationId" should be equal to "myId"
+
+  Scenario: Create an item with a custom UUID
+    When I send the following GraphQL request:
+    """
+    mutation {
+      createWritableId(input: {_id: "c6b722fe-0331-48c4-a214-f81f9f1ca082", name: "Foo", clientMutationId: "m"}) {
+        id
+        _id
+        name
+        clientMutationId
+      }
+    }
+    """
+    And the response should be in JSON
+    And the header "Content-Type" should be equal to "application/json"
+    And the JSON node "data.createWritableId.id" should be equal to "/writable_ids/c6b722fe-0331-48c4-a214-f81f9f1ca082"
+    And the JSON node "data.createWritableId._id" should be equal to "c6b722fe-0331-48c4-a214-f81f9f1ca082"
+    And the JSON node "data.createWritableId.name" should be equal to "Foo"
+    And the JSON node "data.createWritableId.clientMutationId" should be equal to "m"
+
+  Scenario: Update an item with a custom UUID
+    When I send the following GraphQL request:
+    """
+    mutation {
+      updateWritableId(input: {id: "/writable_ids/c6b722fe-0331-48c4-a214-f81f9f1ca082", _id: "f8a708b2-310f-416c-9aef-b1b5719dfa47", name: "Foo", clientMutationId: "m"}) {
+        id
+        _id
+        name
+        clientMutationId
+      }
+    }
+    """
+    And the response should be in JSON
+    And the header "Content-Type" should be equal to "application/json"
+    And the JSON node "data.updateWritableId.id" should be equal to "/writable_ids/f8a708b2-310f-416c-9aef-b1b5719dfa47"
+    And the JSON node "data.updateWritableId._id" should be equal to "f8a708b2-310f-416c-9aef-b1b5719dfa47"
+    And the JSON node "data.updateWritableId.name" should be equal to "Foo"
+    And the JSON node "data.updateWritableId.clientMutationId" should be equal to "m"
 
   @dropSchema
   Scenario: Trigger a validation error
