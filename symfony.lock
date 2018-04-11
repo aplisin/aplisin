@@ -56,6 +56,18 @@
     "doctrine/orm": {
         "version": "v2.6.1"
     },
+    "easywechat-composer/easywechat-composer": {
+        "version": "1.0.0"
+    },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.2"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.4.2"
+    },
     "indragunawan/api-rate-limit-bundle": {
         "version": "0.2",
         "recipe": {
@@ -77,6 +89,9 @@
             "ref": "a66e8a7b75a1825cf2414d5dd53c7ed38c8654d1"
         }
     },
+    "monolog/monolog": {
+        "version": "1.23.0"
+    },
     "namshi/jose": {
         "version": "7.2.3"
     },
@@ -88,6 +103,12 @@
             "version": "1.5",
             "ref": "7b6cbc842f8cd3d550815247d12294f6f304a8c4"
         }
+    },
+    "overtrue/socialite": {
+        "version": "2.0.3"
+    },
+    "overtrue/wechat": {
+        "version": "4.0.21"
     },
     "paragonie/random_compat": {
         "version": "v2.0.12"
@@ -101,11 +122,17 @@
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
     },
+    "pimple/pimple": {
+        "version": "v3.2.3"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
     "psr/container": {
         "version": "1.0.0"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
     },
     "psr/log": {
         "version": "1.0.2"
@@ -208,6 +235,9 @@
     },
     "symfony/property-info": {
         "version": "v3.4.8"
+    },
+    "symfony/psr-http-message-bridge": {
+        "version": "v1.0.2"
     },
     "symfony/routing": {
         "version": "3.3",
