@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.0.8",
         "api-platform/api-pack": "^1.1",
+        "indragunawan/api-rate-limit-bundle": "^0.2.1",
         "symfony/console": "^3.4",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^3.4",

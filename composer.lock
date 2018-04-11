@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d65a36b0832bdfe737795a89368c75a2",
+    "content-hash": "9f49f0eb1f625fce555a7270e6cdc9a4",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -945,6 +945,61 @@
                 "orm"
             ],
             "time": "2018-02-27T07:30:56+00:00"
+        },
+        {
+            "name": "indragunawan/api-rate-limit-bundle",
+            "version": "v0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IndraGunawan/api-rate-limit-bundle.git",
+                "reference": "eb67a3c3c79a834c4d8af6b9ac794d203d38d832"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/IndraGunawan/api-rate-limit-bundle/eb67a3c3c79a834c4d8af6b9ac794d203d38d832.zip",
+                "reference": "eb67a3c3c79a834c4d8af6b9ac794d203d38d832",
+                "shasum": ""
+            },
+            "require": {
+                "api-platform/core": "^2.0",
+                "doctrine/annotations": "^1.4",
+                "php": ">=7.0",
+                "symfony/cache": "^3.1.0 || ^4.0",
+                "symfony/config": "^2.7 || ^3.0 || ^4.0",
+                "symfony/dependency-injection": "^2.7 || ^3.0 || ^4.0",
+                "symfony/http-foundation": "^2.7 || ^3.0 || ^4.0",
+                "symfony/http-kernel": "^2.7 || ^3.0 || ^4.0",
+                "symfony/security-bundle": "^2.7 || ^3.0 || ^4.0",
+                "symfony/twig-bundle": "^2.7 || ^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.2"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Indragunawan\\ApiRateLimitBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Indra Gunawan",
+                    "email": "hello@indra.my.id"
+                }
+            ],
+            "description": "Rate limits protection for api-platform resources.",
+            "keywords": [
+                "api-platform",
+                "rate-limit"
+            ],
+            "time": "2017-12-20T06:56:04+00:00"
         },
         {
             "name": "jdorn/sql-formatter",

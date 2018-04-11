@@ -56,6 +56,15 @@
     "doctrine/orm": {
         "version": "v2.6.1"
     },
+    "indragunawan/api-rate-limit-bundle": {
+        "version": "0.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.2",
+            "ref": "34979e3bdd275203d0831a200aa9462150449e17"
+        }
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
