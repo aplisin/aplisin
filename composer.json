@@ -20,6 +20,7 @@
         "symfony/yaml": "^3.4"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
         "symfony/dotenv": "^3.4"
     },
     "config": {
