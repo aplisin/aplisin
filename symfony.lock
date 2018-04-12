@@ -161,9 +161,6 @@
     "overtrue/wechat": {
         "version": "4.0.21"
     },
-    "paragonie/random_compat": {
-        "version": "v2.0.12"
-    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -336,15 +333,6 @@
         "version": "v1.7.0"
     },
     "symfony/polyfill-mbstring": {
-        "version": "v1.7.0"
-    },
-    "symfony/polyfill-php56": {
-        "version": "v1.7.0"
-    },
-    "symfony/polyfill-php70": {
-        "version": "v1.7.0"
-    },
-    "symfony/polyfill-util": {
         "version": "v1.7.0"
     },
     "symfony/profiler-pack": {
