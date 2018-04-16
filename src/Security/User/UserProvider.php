@@ -30,11 +30,13 @@ class UserProvider implements UserProviderInterface
     public function loadUserByUsername($username)
     {
         $user = $this->getUserService()->getUserByUsername($username);
+
         if (!$user) {
             throw new UsernameNotFoundException(
                 sprintf('Username "%s" does not exist.', $username)
             );
         }
+
         return new CurrentUser($user);
     }
 
@@ -52,6 +54,7 @@ class UserProvider implements UserProviderInterface
                 sprintf('Instances of "%s" are not supported.', \get_class($currentUser))
             );
         }
+
         return $this->loadUserByUsername($currentUser->getUsername());
     }
 

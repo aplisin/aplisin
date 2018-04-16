@@ -1,3 +1,7 @@
 homepage:
     path: /
     defaults: { _controller: 'App\Controller\Web\DefaultController::indexAction' }
+
+swagger_ui:
+    path: /docs
+    controller: api_platform.swagger.action.ui
