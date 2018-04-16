@@ -5,6 +5,7 @@
 /var/
 /vendor/
 /.idea
+/.ppm
 ###< symfony/framework-bundle ###
 
 ###> lexik/jwt-authentication-bundle ###
