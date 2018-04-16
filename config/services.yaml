@@ -26,3 +26,18 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.security.guard.jwt_token_authenticator:
+        class: App\Security\Guard\JwtTokenAuthenticator
+        autowire: true
+
+    app.security.user.user_provider:
+        class: App\Security\User\UserProvider
+        arguments: ['@service_container']
+
+    app.service.user.user_service:
+        class: App\Service\User\UserService
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true
