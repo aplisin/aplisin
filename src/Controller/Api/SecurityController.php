@@ -2,13 +2,27 @@
 
 namespace App\Controller\Api;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
+/**
+ * Class SecurityController
+ * @package App\Controller\Api
+ * @Security("!is_granted('IS_AUTHENTICATED_FULLY')")
+ */
 class SecurityController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Lexik\Bundle\JWTAuthenticationBundle\Response\JWTAuthenticationSuccessResponse
+     * @throws \Symfony\Component\Security\Core\Exception\BadCredentialsException
+     * @throws \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     * @throws \Exception
+     * @throws \Doctrine\ORM\ORMException
+     */
     public function loginCheckAction(Request $request)
     {
         $fields = $request->request->all();

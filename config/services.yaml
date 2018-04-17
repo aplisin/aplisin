@@ -35,6 +35,13 @@ services:
         class: App\Security\User\UserProvider
         arguments: ['@service_container']
 
+    app.service.user.auth_service:
+        class: App\Service\User\AuthService
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+        lazy: true
+
     app.service.user.user_service:
         class: App\Service\User\UserService
         public: true
