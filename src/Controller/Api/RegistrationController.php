@@ -6,7 +6,6 @@ use App\Entity\User\User;
 use App\Form\User\RegistrationUserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,6 +19,7 @@ class RegistrationController extends Controller
     /**
      * @param Request $request
      * @return null|Response
+     * @throws \InvalidArgumentException
      * @throws \Doctrine\ORM\ORMInvalidArgumentException
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
@@ -35,7 +35,17 @@ class RegistrationController extends Controller
             return $this->getAuthSuccessHandler()->handleAuthenticationSuccess($user);
         }
 
-        return new JsonResponse('failure');
+        $errors = $form->getErrors(true, true);
+        foreach ($errors as $error) {
+            $errorCollection[$error->getOrigin()->getConfig()->getName()] = $error->getMessage();
+        }
+
+        $array = ['code' => 400, 'message' => $errorCollection];
+
+        $response = new Response(json_encode($array));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 
     protected function getAuthService()
