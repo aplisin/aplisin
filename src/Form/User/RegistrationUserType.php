@@ -42,6 +42,6 @@ class RegistrationUserType extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'user';
+        return '';
     }
 }
