@@ -19,6 +19,8 @@ class RegistrationController extends Controller
     /**
      * @param Request $request
      * @return null|Response
+     * @throws \Symfony\Component\Form\Exception\AlreadySubmittedException
+     * @throws \LogicException
      * @throws \InvalidArgumentException
      * @throws \Doctrine\ORM\ORMInvalidArgumentException
      * @throws \Doctrine\ORM\ORMException
