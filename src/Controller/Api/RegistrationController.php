@@ -29,13 +29,17 @@ class RegistrationController extends Controller
         $user = new User();
         $form = $this->createForm(RegistrationUserType::class, $user);
 
-        $form->handleRequest($request);
+        $data = $request->getContent();
+        $data = json_decode($data, true);
+
+        $form->submit($data);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getAuthService()->register($user);
             return $this->getAuthSuccessHandler()->handleAuthenticationSuccess($user);
         }
 
         $errors = $form->getErrors(true, true);
+        $errorCollection = [];
         foreach ($errors as $error) {
             $errorCollection[$error->getOrigin()->getConfig()->getName()] = $error->getMessage();
         }
