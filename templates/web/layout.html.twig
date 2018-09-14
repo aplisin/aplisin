@@ -1,0 +1,68 @@
+<!doctype html>
+
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html> <!--<![endif]-->
+
+{% set lang = app.request.locale %}
+
+<html lang="{{ lang }}" class="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>
+    {%- block title -%}
+
+    {%- endblock -%}
+  </title>
+
+  {% block meta %}
+    <meta content="{{ csrf_token('site') }}" name="csrf-token"/>
+    <meta content="{{ app.user.isLogin()|default(0) }}" name="is-login"/>
+  {% endblock %}
+
+  {% block stylesheets %}
+    {% include 'stylesheet_boot.html.twig' %}
+    {% include 'web/stylesheet_app.html.twig' %}
+    {% include 'css_loader.html.twig' %}
+  {% endblock %}
+
+  {% block head_scripts %}{% endblock %}
+</head>
+
+<body class="{{ bodyClass|default(null) }}">
+{% block body %}
+
+  {% block header %}
+    {% include 'web/default/header.html.twig' %}
+  {% endblock %}
+
+  {% block full_content %}
+    {% block top_content %}{% endblock %}
+
+    <div id="content-container" class="container">
+      {% block content %}{% endblock %}
+    </div>
+    {% block bottom_content %}{% endblock %}
+  {% endblock %}
+
+  <div id="modal" class="modal"></div>
+{% endblock %}
+
+{% block footer_script %}
+  {% include 'script_boot.html.twig' %}
+  {% include 'web/script_app.html.twig' %}
+  {% include 'js_loader.html.twig' %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,15 +1,16 @@
 framework:
     secret: '%env(APP_SECRET)%'
-    #default_locale: en
-    #csrf_protection: true
+    default_locale: '%locale%'
+    csrf_protection: true
     #http_method_override: true
+    validation: { enable_annotations: true }
 
     # Enables session support. Note that the session will ONLY be started if you read or write from it.
     # Remove or comment this section to explicitly disable session support.
     session:
         handler_id: ~
 
-    #esi: true
+    esi: true
     #fragments: true
     php_errors:
         log: true
@@ -28,3 +29,8 @@ framework:
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
+
+        pools:
+            cache.api_rate_limit:
+                adapter: cache.adapter.filesystem
+                # provider: redis_client_service # use SncRedisBundle or create your own redis client service
