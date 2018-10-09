@@ -2,11 +2,11 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.0.3",
+        "php": "^7.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.1",
-        "indragunawan/api-rate-limit-bundle": "^0.2.1",
+        "indragunawan/api-rate-limit-bundle": "^0.2",
         "lexik/jwt-authentication-bundle": "^2.5",
         "sensio/framework-extra-bundle": "^5.2",
         "stof/doctrine-extensions-bundle": "^1.3",
