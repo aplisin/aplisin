@@ -6,6 +6,7 @@
 /vendor/
 /.idea
 /.php_cs.cache
+.DS_Store
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
