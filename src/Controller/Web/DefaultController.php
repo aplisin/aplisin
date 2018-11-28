@@ -7,13 +7,13 @@
 
 namespace App\Controller\Web;
 
-use App\Controller\AbstractBaseController;
+use App\Controller\BaseController;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class DefaultController
  */
-class DefaultController extends AbstractBaseController
+class DefaultController extends BaseController
 {
     /**
      * @return Response

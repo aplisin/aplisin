@@ -11,9 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * Class AbstractBaseController
+ * Class BaseController
  */
-abstract class AbstractBaseController extends Controller
+abstract class BaseController extends Controller
 {
     /**
      * Checking to see if a User is Logged In

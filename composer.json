@@ -7,7 +7,7 @@
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.1",
         "indragunawan/api-rate-limit-bundle": "^0.2",
-        "lexik/jwt-authentication-bundle": "^2.5",
+        "lexik/jwt-authentication-bundle": "^2.6",
         "sensio/framework-extra-bundle": "^5.2",
         "stof/doctrine-extensions-bundle": "^1.3",
         "symfony/asset": "*",
@@ -31,10 +31,10 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
-        "phpstan/phpstan": "^0.10.3",
+        "phpstan/phpstan": "^0.10",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
-        "symfony/maker-bundle": "^1.7",
+        "symfony/maker-bundle": "^1.9",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
         "symfony/web-server-bundle": "*"
@@ -56,7 +56,7 @@
         }
     },
     "replace": {
-        "paragonie/random_compat": "*",
+        "paragonie/random_compat": "2.*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php70": "*",
