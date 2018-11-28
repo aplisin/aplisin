@@ -29,3 +29,8 @@ framework:
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
+
+        pools:
+            cache.api_rate_limit:
+                adapter: cache.adapter.filesystem
+                # provider: redis_client_service # use SncRedisBundle or create your own redis client service
