@@ -9,4 +9,3 @@ services:
     Twig\Extensions\DateExtension: ~
     Twig\Extensions\IntlExtension: ~
     Twig\Extensions\TextExtension: ~
-    App\Twig\Extensions\HtmlExtension: ~

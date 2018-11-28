@@ -1,7 +1,0 @@
-{% for path in script() %}
-  {% if path starts with 'http://' %}
-    <script src="{{ path ~ '?' ~ asset_version('') }}"></script>
-  {% else %}
-    <script src="{{ asset('assets/' ~ path) }}"></script>
-  {% endif %}
-{% endfor %}
