@@ -30,20 +30,21 @@ class User implements AdvancedUserInterface
     /**
      * @ORM\Column(type="string", length=64, unique=true)
      * @Assert\NotBlank()
-     * @Assert\Length(min="4", max="64")
+     * @Assert\Length(min="4", max="32")
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=128, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank()
      * @Assert\Email()
-     * @Assert\Length(min="6", max="128")
+     * @Assert\Length(min="6", max="32")
      */
     private $email;
 
     /**
      * @ORM\Column(type="integer", length=32, unique=true, nullable=true)
+     * @Assert\NotBlank()
      */
     private $mobile;
 
@@ -104,6 +105,22 @@ class User implements AdvancedUserInterface
         $this->email = $email;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @param mixed $mobile
+     */
+    public function setMobile($mobile): void
+    {
+        $this->mobile = $mobile;
     }
 
     /**
