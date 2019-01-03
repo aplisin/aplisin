@@ -5,39 +5,39 @@
         "php": "^7.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "api-platform/api-pack": "^1.1",
-        "indragunawan/api-rate-limit-bundle": "^0.2",
-        "lexik/jwt-authentication-bundle": "^2.6",
-        "sensio/framework-extra-bundle": "^5.2",
-        "stof/doctrine-extensions-bundle": "^1.3",
-        "symfony/asset": "3.4.*",
-        "symfony/console": "3.4.*",
-        "symfony/expression-language": "3.4.*",
-        "symfony/flex": "^1.1",
-        "symfony/form": "3.4.*",
-        "symfony/framework-bundle": "3.4.*",
-        "symfony/monolog-bundle": "^3.3",
-        "symfony/orm-pack": "*",
-        "symfony/process": "3.4.*",
-        "symfony/security-bundle": "3.4.*",
-        "symfony/serializer-pack": "*",
-        "symfony/swiftmailer-bundle": "^3.2",
-        "symfony/translation": "3.4.*",
-        "symfony/twig-bundle": "3.4.*",
-        "symfony/validator": "3.4.*",
-        "symfony/web-link": "3.4.*",
-        "symfony/webpack-encore-bundle": "^1.0",
-        "symfony/yaml": "3.4.*",
-        "twig/extensions": "^1.5"
+        "api-platform/api-pack": "1.1.0",
+        "indragunawan/api-rate-limit-bundle": "0.2.1",
+        "lexik/jwt-authentication-bundle": "2.6.1",
+        "sensio/framework-extra-bundle": "5.2.4",
+        "stof/doctrine-extensions-bundle": "1.3.0",
+        "symfony/asset": "3.4.20",
+        "symfony/console": "3.4.20",
+        "symfony/dotenv": "3.4.20",
+        "symfony/expression-language": "3.4.20",
+        "symfony/flex": "1.1.8",
+        "symfony/form": "3.4.20",
+        "symfony/framework-bundle": "3.4.20",
+        "symfony/monolog-bundle": "3.3.1",
+        "symfony/orm-pack": "1.0.5",
+        "symfony/process": "3.4.20",
+        "symfony/security-bundle": "3.4.20",
+        "symfony/serializer-pack": "1.0.2",
+        "symfony/swiftmailer-bundle": "3.2.4",
+        "symfony/translation": "3.4.20",
+        "symfony/twig-bundle": "3.4.20",
+        "symfony/validator": "3.4.20",
+        "symfony/web-link": "3.4.20",
+        "symfony/webpack-encore-bundle": "1.0.0",
+        "symfony/yaml": "3.4.20",
+        "twig/extensions": "1.5.4"
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "^3",
-        "symfony/debug-pack": "*",
-        "symfony/dotenv": "3.4.*",
-        "symfony/maker-bundle": "^1.9",
-        "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "3.4.*"
+        "doctrine/doctrine-fixtures-bundle": "3.1.0",
+        "symfony/debug-pack": "1.0.7",
+        "symfony/maker-bundle": "1.11.1",
+        "symfony/profiler-pack": "1.0.4",
+        "symfony/test-pack": "1.0.2",
+        "symfony/web-server-bundle": "3.4.20"
     },
     "config": {
         "preferred-install": {
@@ -56,14 +56,12 @@
         }
     },
     "replace": {
-        "paragonie/random_compat": "2.*",
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php73": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php71": "*",
-        "symfony/polyfill-php70": "*",
-        "symfony/polyfill-php56": "*"
+        "paragonie/random_compat": "2.0.17",
+        "symfony/polyfill-ctype": "1.10.0",
+        "symfony/polyfill-iconv": "1.10.0",
+        "symfony/polyfill-php70": "1.10.0",
+        "symfony/polyfill-php71": "1.10.0",
+        "symfony/polyfill-php56": "1.10.0"
     },
     "scripts": {
         "auto-scripts": {
@@ -83,7 +81,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "3.4.*"
+            "require": "3.4.20"
         }
     }
 }

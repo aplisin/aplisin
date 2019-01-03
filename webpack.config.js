@@ -9,7 +9,7 @@ files.forEach((file) => {
 });
 
 Encore
-  // directory where compiled assets will be stored
+// directory where compiled assets will be stored
   .setOutputPath('public/assets/')
   // public path used by the web server to access the output path
   .setPublicPath('/assets')

@@ -1,10 +1,5 @@
 <?php
 
-/*
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace App\Tests\Controller\Web;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
