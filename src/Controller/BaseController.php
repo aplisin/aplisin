@@ -1,10 +1,5 @@
 <?php
 
-/*
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,7 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 abstract class BaseController extends Controller
 {
     /**
-     * Checking to see if a User is Logged In
+     * Checking to see if a User is Logged In.
      *
      * @return bool
      */

@@ -1,10 +1,5 @@
 <?php
 
-/*
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace App\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\User\UserRepository")
  * @ORM\Table(name="user")
- * @UniqueEntity(fields={"username", "email"})
+ *
+ * @UniqueEntity(fields={"username", "email", "mobile"})
  */
 class User implements AdvancedUserInterface
 {
@@ -29,6 +25,7 @@ class User implements AdvancedUserInterface
 
     /**
      * @ORM\Column(type="string", length=64, unique=true)
+     *
      * @Assert\NotBlank()
      * @Assert\Length(min="4", max="32")
      */
@@ -36,6 +33,7 @@ class User implements AdvancedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     *
      * @Assert\NotBlank()
      * @Assert\Email()
      * @Assert\Length(min="6", max="32")
@@ -43,10 +41,11 @@ class User implements AdvancedUserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="integer", length=32, unique=true, nullable=true)
+     * @ORM\Column(name="verified_mobile", type="integer", length=32, unique=true, nullable=true)
+     *
      * @Assert\NotBlank()
      */
-    private $mobile;
+    private $verifiedMobile;
 
     /**
      * @ORM\Column(type="json", nullable=true)
@@ -55,6 +54,7 @@ class User implements AdvancedUserInterface
 
     /**
      * @ORM\Column(type="string", length=64)
+     *
      * @Assert\NotBlank()
      */
     private $password;
@@ -68,7 +68,7 @@ class User implements AdvancedUserInterface
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getUsername(): ?string
     {
@@ -88,7 +88,7 @@ class User implements AdvancedUserInterface
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getEmail(): ?string
     {
@@ -110,21 +110,25 @@ class User implements AdvancedUserInterface
     /**
      * @return mixed
      */
-    public function getMobile()
+    public function getVerifiedMobile()
     {
-        return $this->mobile;
+        return $this->verifiedMobile;
     }
 
     /**
-     * @param mixed $mobile
+     * @param int $verifiedMobile
+     *
+     * @return User
      */
-    public function setMobile($mobile): void
+    public function setVerifiedMobile(int $verifiedMobile): self
     {
-        $this->mobile = $mobile;
+        $this->verifiedMobile = $verifiedMobile;
+
+        return $this;
     }
 
     /**
-     * @see UserInterface
+     * @return array
      */
     public function getRoles(): array
     {
@@ -135,21 +139,31 @@ class User implements AdvancedUserInterface
         return array_unique($roles);
     }
 
+    /**
+     * @param array $roles
+     *
+     * @return User
+     */
     public function setRoles(array $roles): self
     {
-        $this->roles = $roles;
+        $this->roles = array_unique($roles);
 
         return $this;
     }
 
     /**
-     * @see UserInterface
+     * @return string
      */
     public function getPassword(): string
     {
         return (string) $this->password;
     }
 
+    /**
+     * @param string $password
+     *
+     * @return User
+     */
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -158,7 +172,7 @@ class User implements AdvancedUserInterface
     }
 
     /**
-     * @see UserInterface
+     * @return string|null
      */
     public function getSalt()
     {

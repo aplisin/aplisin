@@ -155,6 +155,9 @@
     "ocramius/proxy-manager": {
         "version": "2.0.4"
     },
+    "paragonie/random_compat": {
+        "version": "v9.99.99"
+    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -178,6 +181,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "roave/security-advisories": {
+        "version": "dev-master"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -341,7 +347,19 @@
     "symfony/polyfill-intl-icu": {
         "version": "v1.10.0"
     },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.10.0"
+    },
     "symfony/polyfill-mbstring": {
+        "version": "v1.10.0"
+    },
+    "symfony/polyfill-php56": {
+        "version": "v1.10.0"
+    },
+    "symfony/polyfill-php70": {
+        "version": "v1.10.0"
+    },
+    "symfony/polyfill-util": {
         "version": "v1.10.0"
     },
     "symfony/process": {
@@ -472,9 +490,6 @@
     },
     "webmozart/assert": {
         "version": "1.4.0"
-    },
-    "willdurand/negotiation": {
-        "version": "v2.3.1"
     },
     "willdurand/negotiation": {
         "version": "v2.3.1"

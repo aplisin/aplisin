@@ -1,10 +1,5 @@
 <?php
 
-/*
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace App\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
@@ -20,7 +15,7 @@ class UsernameValidator extends ConstraintValidator
      * @param mixed      $value
      * @param Constraint $constraint
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         /* @var $constraint Username */
 
