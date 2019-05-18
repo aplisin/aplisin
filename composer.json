@@ -2,43 +2,43 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/api-pack": "1.2.0",
         "indragunawan/api-rate-limit-bundle": "0.2.1",
-        "lexik/jwt-authentication-bundle": "2.6.2",
-        "sensio/framework-extra-bundle": "5.2.4",
+        "lexik/jwt-authentication-bundle": "2.6.3",
+        "sensio/framework-extra-bundle": "5.3.1",
         "stof/doctrine-extensions-bundle": "1.3.0",
-        "symfony/asset": "3.4.24",
-        "symfony/console": "3.4.24",
-        "symfony/dotenv": "3.4.24",
-        "symfony/expression-language": "3.4.24",
-        "symfony/flex": "1.2.1",
-        "symfony/form": "3.4.24",
-        "symfony/framework-bundle": "3.4.24",
+        "symfony/asset": "3.4.27",
+        "symfony/console": "3.4.27",
+        "symfony/dotenv": "3.4.27",
+        "symfony/expression-language": "3.4.27",
+        "symfony/flex": "1.2.3",
+        "symfony/form": "3.4.27",
+        "symfony/framework-bundle": "3.4.27",
         "symfony/monolog-bundle": "3.3.1",
         "symfony/orm-pack": "1.0.6",
-        "symfony/process": "3.4.24",
-        "symfony/security-bundle": "3.4.24",
+        "symfony/process": "3.4.27",
+        "symfony/security-bundle": "3.4.27",
         "symfony/serializer-pack": "1.0.2",
-        "symfony/swiftmailer-bundle": "3.2.5",
-        "symfony/translation": "3.4.24",
-        "symfony/twig-bundle": "3.4.24",
-        "symfony/validator": "3.4.24",
-        "symfony/web-link": "3.4.24",
+        "symfony/swiftmailer-bundle": "3.2.6",
+        "symfony/translation": "3.4.27",
+        "symfony/twig-bundle": "3.4.27",
+        "symfony/validator": "3.4.27",
+        "symfony/web-link": "3.4.27",
         "symfony/webpack-encore-bundle": "1.4.0",
-        "symfony/yaml": "3.4.24",
+        "symfony/yaml": "3.4.27",
         "twig/extensions": "1.5.4"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "3.1.0",
         "roave/security-advisories": "dev-master",
         "symfony/debug-pack": "1.0.7",
-        "symfony/maker-bundle": "1.11.3",
+        "symfony/maker-bundle": "1.11.6",
         "symfony/profiler-pack": "1.0.4",
         "symfony/test-pack": "1.0.2",
-        "symfony/web-server-bundle": "3.4.24"
+        "symfony/web-server-bundle": "3.4.27"
     },
     "config": {
         "preferred-install": {
@@ -80,7 +80,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "3.4.24"
+            "require": "3.4.27"
         }
     }
 }
